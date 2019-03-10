@@ -4,10 +4,7 @@
 int main()
 {
 	char string[41];
-	printf("Text here:");
 	scanf("%s", string);
-	printf("Does this work?\n");
-	printf("%s\n", string);
-	system("pause");
+	printf("%s", string);
 	return 0;
 }
