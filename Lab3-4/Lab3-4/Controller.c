@@ -65,3 +65,9 @@ const char * listProfilesByPsychologicalProfile(ProfilesVector * profilesReposit
 	}
 	return profilesToPrint;
 }
+
+const char* listProfilesByYears(ProfilesVector *profilesRepository, int yearsToFilter)
+{
+	char s[] = "asd";
+	return s;
+}

@@ -1,11 +1,12 @@
 #pragma once
-
+#include <stdlib.h>
 typedef struct {
-	char profileIdNumber[21];
-	char placeOfBirth[21];
-	char psychologicalProfile[21];
+	char *profileIdNumber;
+	char *placeOfBirth;
+	char *psychologicalProfile;
 	int yearsOfRecordedService;
 }Profile;
 
-Profile createProfile(char profileIdNumber[], char placeOfBirth[], char psychologicalProfile[], int yearsOfRecordedService);
+Profile* createProfile(char profileIdNumber[], char placeOfBirth[], char psychologicalProfile[], int yearsOfRecordedService);
 
+void destroyProfile(Profile *profileToDestroy);

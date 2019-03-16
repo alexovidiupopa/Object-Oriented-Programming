@@ -5,15 +5,18 @@
 
 int uiAdd(ProfilesVector *profilesRepository, char *splitCommand) {
 	char profileIdNumber[21], psychologicalProfile[21], placeOfBirth[21],yearsOfService[11];
+	//char* s = ", ";
 	splitCommand = strtok(NULL, ", ");
 	if (splitCommand == NULL) {
 		return -1;
 	}
+	
 	strcpy(profileIdNumber, splitCommand);
 	splitCommand = strtok(NULL, ", ");
 	if (splitCommand == NULL) {
 		return -1;
 	}
+	//printf("%s", splitCommand);
 	strcpy(placeOfBirth, splitCommand);
 	splitCommand = strtok(NULL, ", ");
 	if (splitCommand == NULL) {
@@ -29,7 +32,7 @@ int uiAdd(ProfilesVector *profilesRepository, char *splitCommand) {
 	if (splitCommand != NULL) {
 		return -1;
 	}
-
+	
 	return addProfile(profilesRepository, profileIdNumber, placeOfBirth, psychologicalProfile, atoi(yearsOfService));
 }
 
@@ -93,10 +96,15 @@ int uiList(ProfilesVector *profilesRepository, char *splitCommand) {
 		if (splitCommand != NULL) {
 			return -1;
 		}
-		strcpy(listOfProfiles, listProfilesByPsychologicalProfile(profilesRepository,typeOfPsychologicalProfileToFilter));
+		int yearsToFilter = atoi(typeOfPsychologicalProfileToFilter);
+		if (yearsToFilter == 0) {
+			strcpy(listOfProfiles, listProfilesByPsychologicalProfile(profilesRepository, typeOfPsychologicalProfileToFilter));
+		}
+		else {
+			strcpy(listOfProfiles, listProfilesByYears(profilesRepository,yearsToFilter));
+		}
 		printf("%s", listOfProfiles);
 	}
-
 	return 1;
 }
 
@@ -107,7 +115,7 @@ void runConsole(ProfilesVector *profilesRepository)
 		char *splitCommand; 
 		char command[11];
 		//printf("->");
-		scanf( " %[^'\n']s", userInputString);
+		scanf( " %[^\n]s", userInputString);
 		
 		splitCommand = strtok(userInputString, " ");
 
@@ -123,14 +131,15 @@ void runConsole(ProfilesVector *profilesRepository)
 		else if (strcmp(command, "delete") == 0) {
 			validOperation = uiDelete(profilesRepository, splitCommand);
 		}
+		else if (strcmp(command, "list") == 0) {
+			validOperation = uiList(profilesRepository, splitCommand);
+		}
 		else if (strcmp(command, "exit") == 0) {
 			return; 
 		}
-		else if (strcmp(command, "list") == 0) {
-			validOperation = uiList(profilesRepository,splitCommand);
-		}
 		if (validOperation < 0) {
 			printf("Error when executing the command.");
+			continue;
 		}
 	}
 	

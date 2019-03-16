@@ -1,10 +1,12 @@
 #include "Repository.h"
 #include <string.h>
 
-ProfilesVector createRepository()
+ProfilesVector* createRepository(int capacity)
 {
-	ProfilesVector profilesRepository;
-	profilesRepository.length = 0;
+	ProfilesVector* profilesRepository = (ProfilesVector*)malloc(sizeof(ProfilesVector));
+	profilesRepository->capacity = capacity;
+	profilesRepository->length = 0;
+	profilesRepository->profiles = (Profile*)malloc(sizeof(Profile)*capacity);
 	return profilesRepository;
 }
 
@@ -24,6 +26,9 @@ int addProfileToRepository(Profile profileToAdd, ProfilesVector *profilesReposit
 	///if it doesnt already exist, the profile is added.
 	if (searchProfileInRepositoryAfterId(profileToAdd.profileIdNumber, profilesRepository) != -1)
 		return -1;
+	if (profilesRepository->length == profilesRepository->capacity) {
+		resize(profilesRepository);
+	}
 	profilesRepository->profiles[profilesRepository->length] = profileToAdd;
 	profilesRepository->length++;
 	return 1;
@@ -56,3 +61,24 @@ int updateProfileInRepository(Profile profileToUpdate, ProfilesVector *profilesR
 	profilesRepository->profiles[index] = profileToUpdate;
 	return 1;
 }
+
+void destroyRepository(ProfilesVector * profileRepository)
+{
+	for (int i = 0; i < profileRepository->length; i++) {
+		destroyProfile(profileRepository->profiles[i]);
+	}
+	free(profileRepository->profiles);
+	free(profileRepository);
+}
+
+void resize(ProfilesVector * profilesRepository)
+{
+	profilesRepository->capacity *= 2;
+	Profile* newProfiles = malloc(sizeof(Profile)*profilesRepository->capacity);
+	for (int i = 0; i < profilesRepository->length; i++) {
+		newProfiles[i] = profilesRepository->profiles[i];
+	}
+	free(profilesRepository->profiles);
+	profilesRepository->profiles = newProfiles;
+}
+

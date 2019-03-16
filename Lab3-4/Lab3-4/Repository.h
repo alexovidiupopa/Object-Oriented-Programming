@@ -3,11 +3,11 @@
 #include "Profile.h"
 
 typedef struct {
-	Profile profiles[30];
-	int length; 
+	Profile* profiles;
+	int length,capacity; 
 }ProfilesVector;
 
-ProfilesVector createRepository();
+ProfilesVector* createRepository(int capacity);
 
 int searchProfileInRepositoryAfterId(char profileIdNumber[], ProfilesVector *profilesRepository);
 
@@ -16,3 +16,6 @@ int addProfileToRepository(Profile profileToAdd, ProfilesVector *profilesReposit
 int deleteProfileFromRepository(char profileIdNumber[], ProfilesVector *profilesRepository);
 
 int updateProfileInRepository(Profile profileToUpdate, ProfilesVector *profilesRepository);
+
+void destroyRepository(ProfilesVector *profileRepository);
+void resize(ProfilesVector *profilesRepository);

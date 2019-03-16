@@ -23,12 +23,14 @@
     <ClCompile Include="Profile.c" />
     <ClCompile Include="Repository.c" />
     <ClCompile Include="Source.c" />
+    <ClCompile Include="Tests.c" />
     <ClCompile Include="UserInterface.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controller.h" />
     <ClInclude Include="Profile.h" />
     <ClInclude Include="Repository.h" />
+    <ClInclude Include="Tests.h" />
     <ClInclude Include="UserInterface.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
