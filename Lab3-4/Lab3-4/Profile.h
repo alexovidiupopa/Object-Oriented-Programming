@@ -7,6 +7,8 @@ typedef struct {
 	int yearsOfRecordedService;
 }Profile;
 
-Profile* createProfile(char profileIdNumber[], char placeOfBirth[], char psychologicalProfile[], int yearsOfRecordedService);
+Profile createProfile(char *profileIdNumber, char *placeOfBirth, char *psychologicalProfile, int yearsOfRecordedService);
 
-void destroyProfile(Profile *profileToDestroy);
+void destroyProfile(Profile profileToDestroy);
+
+Profile copyProfile(Profile* profileToCopy);

@@ -1,15 +1,19 @@
-#include <crtdbg.h>
+#define _CRTDBG_MAP_ALLOC
 #include "UserInterface.h"
 #include <stdlib.h>
 #include "Tests.h"
-#define _CRTDBG_MAP_ALLOC
+#include <windows.h>
+#include <crtdbg.h>
+
 
 int main() {
-	runTests();
-	ProfilesVector *profilesRepository = (ProfilesVector*)malloc(sizeof(ProfilesVector));
-	*profilesRepository = createRepository();
-	runConsole(profilesRepository);
+	//runTests();
+	ProfilesVector *profilesRepository = createRepository(1);
+	RepositoryStack *stack = createUndoRedoStack(1);
+	runConsole(profilesRepository,stack);
 	destroyRepository(profilesRepository);
+	destroyStack(stack);
 	_CrtDumpMemoryLeaks();
+	system("pause");
 	return 0;
 }

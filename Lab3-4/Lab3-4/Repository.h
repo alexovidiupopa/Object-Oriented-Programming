@@ -17,5 +17,24 @@ int deleteProfileFromRepository(char profileIdNumber[], ProfilesVector *profiles
 
 int updateProfileInRepository(Profile profileToUpdate, ProfilesVector *profilesRepository);
 
-void destroyRepository(ProfilesVector *profileRepository);
-void resize(ProfilesVector *profilesRepository);
+void destroyRepository(ProfilesVector* profileRepository);
+
+void resize(ProfilesVector* profilesRepository);
+
+ProfilesVector * profilesWithLessThanAGivenValue(ProfilesVector * profileRepository, int givenValue);
+typedef struct {
+	ProfilesVector* repositories;
+	int length, capacity,index;
+}RepositoryStack;
+
+RepositoryStack *createUndoRedoStack(int capacity);
+
+void resizeStack(RepositoryStack* stack);
+
+ProfilesVector  copyRepository(ProfilesVector * repository);
+
+void destroyStack(RepositoryStack* stack);
+
+void addToStack(RepositoryStack* stack, ProfilesVector *repoToAdd);
+
+void replaceRepository(ProfilesVector *oldRepo, ProfilesVector newRepo);
