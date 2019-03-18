@@ -87,7 +87,7 @@ void sortProfiles(ProfilesVector *profilesToSort)
 }
 int undo(ProfilesVector* profilesRepository, RepositoryStack * stack)
 {
-	if (stack->index-1 == -1)
+	if (stack->index <= 0)
 		return -1;
 	stack->index--;
 	replaceRepository(profilesRepository, stack->repositories[stack->index]);
@@ -97,9 +97,11 @@ int undo(ProfilesVector* profilesRepository, RepositoryStack * stack)
 int redo(ProfilesVector* profilesRepository, RepositoryStack * stack)
 {
 	
-	if (stack->index == stack->length)
+	if (stack->index >= stack->length-1)
 		return -1;
+	//printf("%d ", stack->index);
 	stack->index++;
+	//printf("%d ", stack->repositories[stack->index].profiles[0].yearsOfRecordedService);
 	replaceRepository(profilesRepository, stack->repositories[stack->index]);
 	return 1;
 }

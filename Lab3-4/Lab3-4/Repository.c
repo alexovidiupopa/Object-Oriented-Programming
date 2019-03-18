@@ -100,7 +100,7 @@ RepositoryStack * createUndoRedoStack(int capacity)
 {
 	RepositoryStack* stack = (RepositoryStack*)malloc(sizeof(RepositoryStack));
 	stack->capacity = capacity;
-	stack->length = 1;
+	stack->length = 0;
 	stack->index = 0;
 	stack->repositories = (ProfilesVector*)malloc(sizeof(ProfilesVector)*capacity);
 	return stack;
@@ -128,6 +128,7 @@ void destroyStack(RepositoryStack * stack)
 			free(stack->repositories[i].profiles[j].placeOfBirth);
 			free(stack->repositories[i].profiles[j].psychologicalProfile);
 		}
+		//free(&stack->repositories[i]);
 	}
 	free(stack->repositories);
 	free(stack);

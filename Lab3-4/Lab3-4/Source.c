@@ -8,8 +8,8 @@
 
 int main() {
 	//runTests();
-	ProfilesVector *profilesRepository = createRepository(1);
-	RepositoryStack *stack = createUndoRedoStack(1);
+	ProfilesVector *profilesRepository = createRepository(10);
+	RepositoryStack *stack = createUndoRedoStack(10);
 	runConsole(profilesRepository,stack);
 	destroyRepository(profilesRepository);
 	destroyStack(stack);
