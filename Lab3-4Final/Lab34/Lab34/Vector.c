@@ -2,69 +2,65 @@
 
 #include "Vector.h"
 
-DynamicArray* createArray(int capacity, destroyFunction destroyF, copyFunction copyF)
+DynamicArray* createArray(int capacity, destroyFunction destroyFunction, copyFunction copyFunction)
 {
-	DynamicArray* array = (DynamicArray*)malloc(sizeof(DynamicArray));
-	array->capacity = capacity;
-	array->size = 0;
-	array->elements = (Telem*)malloc(sizeof(Telem)*capacity);
+	DynamicArray* genericDynamicArray = (DynamicArray*)malloc(sizeof(DynamicArray));
+	genericDynamicArray->capacity = capacity;
+	genericDynamicArray->size = 0;
+	genericDynamicArray->elements = (GenericElement*)malloc(sizeof(GenericElement)*capacity);
 
-	array->destroyFct = destroyF;
-	array->copyFct = copyF;
+	genericDynamicArray->destroyFunction = destroyFunction;
+	genericDynamicArray->copyFunction = copyFunction;
 
-	return array;
+	return genericDynamicArray;
 }
 
-void destroyArray(DynamicArray* array)
+void destroyArray(DynamicArray* genericDynamicArray)
 {
-	if (array == NULL)
+	if (genericDynamicArray == NULL)
 		return;
 
-	for (int i = 0; i < array->size; i++)
+	for (int i = 0; i < genericDynamicArray->size; i++)
 	{
-		array->destroyFct(array->elements[i]);
+		genericDynamicArray->destroyFunction(genericDynamicArray->elements[i]);
 		
 	}
-	free(array->elements);
-	//array->elements = NULL;
-	free(array);
-	//array = NULL;
+	free(genericDynamicArray->elements);
+	free(genericDynamicArray);
 }
 
-void addToArray(DynamicArray * array, Telem elementToAdd)
+void addToArray(DynamicArray * genericDynamicArray, GenericElement elementToAdd)
 {
-	if (array->size == array->capacity)
+	if (genericDynamicArray->size == genericDynamicArray->capacity)
 	{
-		resize(array);
+		resize(genericDynamicArray);
 	}
-	array->elements[array->size++] = array->copyFct(elementToAdd);
-	//return 1;
+	genericDynamicArray->elements[genericDynamicArray->size++] = genericDynamicArray->copyFunction(elementToAdd);
 }
 
-void resize(DynamicArray * array)
+void resize(DynamicArray * genericDynamicArray)
 {
-	array->capacity *= 2;
-	Telem* newElems = (Telem*) malloc(sizeof(Telem)*array->capacity);
-	for (int i = 0; i < array->size; i++) {
-		newElems[i] = array->elements[i];
+	genericDynamicArray->capacity *= 2;
+	GenericElement* newElements = (GenericElement*) malloc(sizeof(GenericElement)*genericDynamicArray->capacity);
+	for (int i = 0; i < genericDynamicArray->size; i++) {
+		newElements[i] = genericDynamicArray->elements[i];
 	}
-	free(array->elements);
-	array->elements = newElems;
-	//free(newElems);
+	free(genericDynamicArray->elements);
+	genericDynamicArray->elements = newElements;
 }
 
-DynamicArray * copyArray(DynamicArray * array)
+DynamicArray * copyArray(DynamicArray * genericDynamicArray)
 {
-	DynamicArray* newA = (DynamicArray*)malloc(sizeof(DynamicArray));
-	newA->capacity = array->capacity;
-	newA->size = array->size;
-	newA->elements = (Telem*)malloc(sizeof(Telem)*newA->capacity);
+	DynamicArray* newGenericDynamicArray = (DynamicArray*)malloc(sizeof(DynamicArray));
+	newGenericDynamicArray->capacity = genericDynamicArray->capacity;
+	newGenericDynamicArray->size = genericDynamicArray->size;
+	newGenericDynamicArray->elements = (GenericElement*)malloc(sizeof(GenericElement)*newGenericDynamicArray->capacity);
 
-	newA->destroyFct = array->destroyFct;
-	newA->copyFct = array->copyFct;
+	newGenericDynamicArray->destroyFunction = genericDynamicArray->destroyFunction;
+	newGenericDynamicArray->copyFunction = genericDynamicArray->copyFunction;
 
-	for (int i = 0; i < array->size; i++)
-		newA->elements[i] = array->copyFct(array->elements[i]);
+	for (int i = 0; i < genericDynamicArray->size; i++)
+		newGenericDynamicArray->elements[i] = genericDynamicArray->copyFunction(genericDynamicArray->elements[i]);
 
-	return newA;
+	return newGenericDynamicArray;
 }

@@ -45,12 +45,24 @@ void testDelete()
 
 void testList()
 {
-
+	DynamicArray *testRepository = createArray(1, &destroyProfile, &copyProfile);
+	assert(addProfile(testRepository, "1", "a", "b", 1) == 1);
+	char testOutput[21];
+	testOutput[0] = 0;
+	listProfiles(testRepository, testOutput);
+	assert(strcmp(testOutput, "1 a b 1\n") == 0);
+	assert(addProfile(testRepository, "2", "a", "b", 1) == 1);
+	testOutput[0] = 0;
+	listProfilesByPsychologicalProfile(testRepository, "b", testOutput);
+	assert(strcmp(testOutput, "1 a b 1\n2 a b 1\n") == 0);
+	destroyArray(testRepository);
 }
+
 void runTests()
 {
 	testProfile();
 	testAdd();
 	testUpdate();
 	testDelete();
+	testList();
 }

@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include "UserInterface.h"
 #include "Tests.h"
+
 int main()
 {
 	runTests();

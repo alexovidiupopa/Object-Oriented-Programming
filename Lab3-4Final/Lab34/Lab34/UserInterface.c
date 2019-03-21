@@ -82,11 +82,10 @@ int uiDelete(DynamicArray *profilesRepository, char *splitCommand) {
 int uiList(DynamicArray *profilesRepository, char *splitCommand) {
 
 	char listOfProfiles[201];
+	listOfProfiles[0] = 0;
 	splitCommand = strtok(NULL, " ");
 	if (splitCommand == NULL) {
-		listProfiles(profilesRepository);
-		//strcpy(listOfProfiles, listProfiles(profilesRepository));
-		//rintf("%s", listOfProfiles);
+		listProfiles(profilesRepository, listOfProfiles);
 	}
 	else {
 		char typeOfPsychologicalProfileToFilter[21];
@@ -97,12 +96,13 @@ int uiList(DynamicArray *profilesRepository, char *splitCommand) {
 		}
 		int yearsToFilter = atoi(typeOfPsychologicalProfileToFilter);
 		if (yearsToFilter == 0) {
-			listProfilesByPsychologicalProfile(profilesRepository, typeOfPsychologicalProfileToFilter);
+			listProfilesByPsychologicalProfile(profilesRepository, typeOfPsychologicalProfileToFilter, listOfProfiles);
 		}
 		else {
-			listProfilesWithLessThanAGivenValue(profilesRepository, yearsToFilter);
+			listProfilesWithLessThanAGivenValue(profilesRepository, yearsToFilter, listOfProfiles);
 		}
 	}
+	printf("%s", listOfProfiles);
 	return 1;
 }
 
@@ -115,17 +115,14 @@ void runConsole(DynamicArray *profilesRepository,DynamicArray *repositoryStack)
 		char userInputString[101];
 		char *splitCommand;
 		char command[11];
-
-		//printf("->");
+		
 		scanf(" %[^\n]s", userInputString);
 
 		splitCommand = strtok(userInputString, " ");
 
 		strcpy(command, splitCommand);
 
-		DynamicArray* auxiliaryArray = repositoryStack->copyFct(repositoryStack->elements[undoRedoIndex]);
-
-		//profilesRepository = repositoryStack->copyFct(repositoryStack->elements[undoRedoIndex]);
+		DynamicArray* auxiliaryArray = repositoryStack->copyFunction(repositoryStack->elements[undoRedoIndex]);
 
 		int validOperation = -1;
 		if (strcmp(command, "add") == 0) {
@@ -171,7 +168,7 @@ void runConsole(DynamicArray *profilesRepository,DynamicArray *repositoryStack)
 			return;
 		}
 		if (validOperation < 0) {
-			printf("Error when executing the command.");
+			printf("Error when executing the command.\n");
 			continue;
 		}
 		

@@ -16,7 +16,4 @@ int deleteProfileFromRepository(char profileIdNumber[], DynamicArray *profilesRe
 
 void updateProfileInRepository(Profile* profileToUpdate, DynamicArray *profilesRepository,int index);
 
-void destroyRepository(DynamicArray* profileRepository);
-
-ProfilesRepository* copyRepository(ProfilesRepository* repositoryToCopy);
 DynamicArray* profilesWithLessThanAGivenValue(DynamicArray *dynamicArray, int givenValue);

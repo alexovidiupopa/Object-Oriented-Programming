@@ -1,25 +1,25 @@
 #pragma once
 #include "Profile.h"
 
-typedef void* Telem;
-typedef void(*destroyFunction)(Telem);
-typedef Telem(*copyFunction)(Telem);
+typedef void* GenericElement;
+typedef void(*destroyFunction)(GenericElement);
+typedef GenericElement(*copyFunction)(GenericElement);
 
 typedef struct
 {
-	Telem* elements;
+	GenericElement* elements;
 	int size, capacity;
-	destroyFunction destroyFct;
-	copyFunction copyFct;
+	destroyFunction destroyFunction;
+	copyFunction copyFunction;
 
 } DynamicArray;
 
-DynamicArray* createArray(int capacity, destroyFunction destroyF, copyFunction copyF);
+DynamicArray* createArray(int capacity, destroyFunction destroyFunction, copyFunction copyFunction);
 
-void destroyArray(DynamicArray* array);
+void destroyArray(DynamicArray* genericDynamicArray);
 
-void addToArray(DynamicArray* array, Telem elementToAdd);
+void addToArray(DynamicArray* genericDynamicArray, GenericElement elementToAdd);
 
-void resize(DynamicArray* array);
+void resize(DynamicArray* genericDynamicArray);
 
-DynamicArray* copyArray(DynamicArray* array);
+DynamicArray* copyArray(DynamicArray* genericDynamicArray);

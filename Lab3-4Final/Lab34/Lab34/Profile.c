@@ -40,17 +40,23 @@ void destroyProfile(Profile* profileToDestroy)
 	free(profileToDestroy->profileIdNumber);
 	free(profileToDestroy->placeOfBirth);
 	free(profileToDestroy->psychologicalProfile);
-	//profileToDestroy->profileIdNumber = NULL;
-	//profileToDestroy->placeOfBirth = NULL;
-	//profileToDestroy->psychologicalProfile = NULL;
 	free(profileToDestroy);
 	
-	//profileToDestroy = NULL;
 }
 
-void toString(Profile* printProfile)
+void toString(Profile* printProfile, char stringToConcatenate[])
 {
-	printf("%s %s %s %d\n", printProfile->profileIdNumber, printProfile->placeOfBirth, printProfile->psychologicalProfile, printProfile->yearsOfRecordedService);
+	char auxiliary[41];
+	strcpy(auxiliary, printProfile->profileIdNumber);
+	strcat(stringToConcatenate, auxiliary);
+	strcat(stringToConcatenate, " ");
+	strcat(stringToConcatenate, printProfile->placeOfBirth);
+	strcat(stringToConcatenate, " ");
+	strcat(stringToConcatenate, printProfile->psychologicalProfile);
+	strcat(stringToConcatenate, " ");
+	itoa(printProfile->yearsOfRecordedService, auxiliary, 10);
+	strcat(stringToConcatenate, auxiliary);
+	strcat(stringToConcatenate, "\n");
 }
 
 Profile * copyProfile(Profile * profileToCopy)

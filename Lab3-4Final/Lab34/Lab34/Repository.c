@@ -36,30 +36,9 @@ void updateProfileInRepository(Profile *profileToUpdate, DynamicArray * profiles
 	profilesRepository->elements[index] = copyProfile(profileToUpdate);
 }
 
-void destroyRepository(DynamicArray * profileRepository)
-{
-	for (int i = 0; i < profileRepository->size; i++)
-		profileRepository->destroyFct(profileRepository->elements[i]);
-	free(profileRepository->elements);
-	free(profileRepository);
-}
-
-ProfilesRepository *copyRepository(ProfilesRepository * repositoryToCopy)
-{
-	ProfilesRepository* newA = (ProfilesRepository*)malloc(sizeof(ProfilesRepository));
-	newA->capacity = repositoryToCopy->capacity;
-	newA->size = repositoryToCopy->size;
-	newA->profiles = (Profile*)malloc(sizeof(Profile)*repositoryToCopy->capacity);
-	
-	for (int i = 0; i < repositoryToCopy->size; i++)
-		newA->profiles[i] = repositoryToCopy->profiles[i];
-
-	return newA;
-}
-
 DynamicArray* profilesWithLessThanAGivenValue(DynamicArray *dynamicArray, int givenValue)
 {
-	DynamicArray* temporaryArray = createArray(dynamicArray->capacity, dynamicArray->destroyFct, dynamicArray->copyFct);
+	DynamicArray* temporaryArray = createArray(dynamicArray->capacity, dynamicArray->destroyFunction, dynamicArray->copyFunction);
 	for (int i = 0; i < dynamicArray->size; i++)
 		if (getYearsOfRecordedService(dynamicArray->elements[i]) < givenValue)
 			addToArray(temporaryArray, dynamicArray->elements[i]);

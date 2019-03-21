@@ -1,6 +1,7 @@
 #pragma once
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 typedef struct {
 	char *profileIdNumber;
 	char *placeOfBirth;
@@ -18,4 +19,5 @@ int getYearsOfRecordedService(Profile *profile);
 void destroyProfile(Profile* profileToDestroy);
 
 Profile* copyProfile(Profile* profileToCopy);
-void toString(Profile* printProfile);
+
+void toString(Profile* printProfile, char stringToConcatenate[]);

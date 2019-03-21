@@ -33,49 +33,51 @@ int updateProfile(DynamicArray * profilesRepository, char profileIdNumber[], cha
 }
 
 
-void listProfiles(DynamicArray * profilesRepository)
+void listProfiles(DynamicArray * profilesRepository,char listProfiles[])
 {
 	///the function creates and returns a string representing all the elements in the repository.
 	int i;
 	for (i = 0; i < profilesRepository->size; i++) {
-		toString(profilesRepository->elements[i]);
+		toString(profilesRepository->elements[i], listProfiles);
 	}
 	
 }
 
-void listProfilesByPsychologicalProfile(DynamicArray * profilesRepository, char psychologicalProfile[])
+void listProfilesByPsychologicalProfile(DynamicArray * profilesRepository, char psychologicalProfile[], char listProfiles[])
 {
 	///the function creates and returns a string representing all the elements which have the psychological profile like the <psychologicalProfile> parameter from the repository.
 	int i;
 	for (i = 0; i < profilesRepository->size; i++) {
 		if (strcmp(getPsychologicalProfile(profilesRepository->elements[i]), psychologicalProfile) == 0) {
-			toString(profilesRepository->elements[i]);
+			toString(profilesRepository->elements[i], listProfiles);
 		}
 	}
 }
 
 void sortProfiles(DynamicArray *profilesToSort)
-{
-	for (int i = 0; i < profilesToSort->size - 1; i++) {
-		for (int j = i + 1; j < profilesToSort->size; j++) {
+{	
+	int i, j;
+	for (i = 0; i < profilesToSort->size - 1; i++) {
+		for (j = i + 1; j < profilesToSort->size; j++) {
 			if (strcmp(getPlaceOfBirth(profilesToSort->elements[i]), getPlaceOfBirth(profilesToSort->elements[j])) < 0) {
 				Profile* auxiliary;
-				auxiliary = profilesToSort->copyFct(profilesToSort->elements[i]);
-				profilesToSort->destroyFct(profilesToSort->elements[i]);
-				profilesToSort->elements[i] = profilesToSort->copyFct(profilesToSort->elements[j]);
-				profilesToSort->destroyFct(profilesToSort->elements[j]);
-				profilesToSort->elements[j] = profilesToSort->copyFct(auxiliary);
-				profilesToSort->destroyFct(auxiliary);
+				auxiliary = profilesToSort->copyFunction(profilesToSort->elements[i]);
+				profilesToSort->destroyFunction(profilesToSort->elements[i]);
+				profilesToSort->elements[i] = profilesToSort->copyFunction(profilesToSort->elements[j]);
+				profilesToSort->destroyFunction(profilesToSort->elements[j]);
+				profilesToSort->elements[j] = profilesToSort->copyFunction(auxiliary);
+				profilesToSort->destroyFunction(auxiliary);
 			}
 		}
 	}
 }
-void listProfilesWithLessThanAGivenValue(DynamicArray * profilesRepository, int givenValue)
+void listProfilesWithLessThanAGivenValue(DynamicArray * profilesRepository, int givenValue, char listProfiles[])
 {
 	DynamicArray* profilesToSort = profilesWithLessThanAGivenValue(profilesRepository, givenValue);
 	sortProfiles(profilesToSort);
-	for (int i = 0; i < profilesToSort->size; i++)
-		toString(profilesToSort->elements[i]);
+	int i;
+	for (i = 0; i < profilesToSort->size; i++)
+		toString(profilesToSort->elements[i], listProfiles);
 	destroyArray(profilesToSort);
 }
 
