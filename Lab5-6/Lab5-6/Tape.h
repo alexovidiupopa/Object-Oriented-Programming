@@ -12,7 +12,7 @@ public:
 
 	Tape(char title[], char filmedAt[], char creationDate[], char footagePreview[], int accessCount);
 
-	const char* getTitle();
+	char* getTitle();
 
 	const char* getFilmedAt();
 

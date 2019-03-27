@@ -116,6 +116,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="DynamicVector.cpp" />
     <ClCompile Include="Repository.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Tape.cpp" />
@@ -125,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controller.h" />
+    <ClInclude Include="DynamicVector.h" />
     <ClInclude Include="Repository.h" />
     <ClInclude Include="Tape.h" />
     <ClInclude Include="Tests.h" />

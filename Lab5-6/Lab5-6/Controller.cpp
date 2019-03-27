@@ -1,5 +1,5 @@
 #include "Controller.h"
-
+#include <iostream>
 Controller::Controller(Repository * repository, Validator * validator)
 {
 	this->repository = repository;
@@ -10,18 +10,23 @@ bool Controller::addTape(char givenTitle[], char givenFilmedAt[], char givenCrea
 {
 	if (!this->validator->validateData(givenTitle, givenFilmedAt, givenCreationDate, givenFootagePreview, givenAccessCount))
 		return false;
+
 	Tape TapeToAdd(givenTitle, givenFilmedAt, givenCreationDate, givenFootagePreview, givenAccessCount);
 	return this->repository->addTapeToRepository(TapeToAdd);
 }
 
 bool Controller::removeTape(char givenTitle[])
 {
-	return false;
+	return this->repository->removeTapeFromRepo(givenTitle);
 }
 
 bool Controller::updateTape(char givenTitle[], char givenFilmedAt[], char givenCreationDate[], char givenFootagePreview[], int givenAccessCount)
 {
-	return false;
+	if (!this->validator->validateData(givenTitle, givenFilmedAt, givenCreationDate, givenFootagePreview, givenAccessCount))
+		return false;
+
+	Tape TapeToAdd(givenTitle, givenFilmedAt, givenCreationDate, givenFootagePreview, givenAccessCount);
+	return this->repository->updateTapeInRepo(TapeToAdd);
 }
 
 void Controller::listTapes(char tapesToPrint[])

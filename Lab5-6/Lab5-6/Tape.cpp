@@ -12,8 +12,7 @@ Tape::Tape(char givenTitle[], char givenFilmedAt[], char givenCreationDate[], ch
 	strcpy(footagePreview, givenFootagePreview);
 	accessCount = givenAccessCount;
 }
-
-const char * Tape::getTitle()
+char * Tape::getTitle()
 {
 	return title;
 }

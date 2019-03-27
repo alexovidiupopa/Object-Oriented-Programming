@@ -1,7 +1,7 @@
 #include <iostream>
 #include "UI.h"
 #include <Windows.h>
-
+#include <crtdbg.h>
 
 
 using namespace std;
@@ -16,6 +16,7 @@ int main() {
 	Controller* controller = new Controller(repository,validator);
 	UI* ui = new UI(controller);
 	ui->run();
+	_CrtDumpMemoryLeaks();
 	system("pause");
 	return 0;
 }

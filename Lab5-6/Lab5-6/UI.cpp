@@ -3,22 +3,19 @@
 #include <stdlib.h>
 bool UI::addTape(char command[])
 {
-	//command;
 	char title[21], filmedAt[41], creationDate[21], footagePreview[21],accessCount[21];
 	command = strtok(NULL, ", ");
 	if (command == NULL)
 		return false;
 	strcpy(title, command);
-	std::cout << title;
 	command = strtok(NULL, ", ");
 	if (command == NULL)
 		return false;
-	strcpy(filmedAt, ", ");
-	std::cout << filmedAt;
+	strcpy(filmedAt, command);
 	command = strtok(NULL, ", ");
 	if (command == NULL)
 		return false;
-	strcpy(creationDate, ", ");
+	strcpy(creationDate, command);
 	command = strtok(NULL, ", ");
 	if (command == NULL)
 		return false;
@@ -26,7 +23,7 @@ bool UI::addTape(char command[])
 	command = strtok(NULL, ", ");
 	if (command == NULL)
 		return false;
-	strcpy(footagePreview, ", ");
+	strcpy(footagePreview, command);
 	command = strtok(NULL, ", ");
 	if (command != NULL)
 		return false;
@@ -38,12 +35,53 @@ bool UI::list(char command[])
 	command = strtok(NULL, " ");
 	if (command != NULL)
 		return false;
-	//std::cout << "here";
 	char tapes[1001];
 	tapes[0] = 0;
 	this->controller->listTapes(tapes);
 	std::cout << tapes;
 	return true;
+}
+
+bool UI::removeTape(char command[])
+{
+	char title[21];
+	command = strtok(NULL, " ");
+	if (command == NULL)
+		return false;
+	strcpy(title, command);
+	command = strtok(NULL, " ");
+	if (command != NULL)
+		return false;
+	return this->controller->removeTape(title);
+}
+
+bool UI::updateTape(char command[])
+{
+	char title[21], filmedAt[41], creationDate[21], footagePreview[21], accessCount[21];
+	command = strtok(NULL, ", ");
+	if (command == NULL)
+		return false;
+	strcpy(title, command);
+	command = strtok(NULL, ", ");
+	if (command == NULL)
+		return false;
+	strcpy(filmedAt, command);
+	command = strtok(NULL, ", ");
+	if (command == NULL)
+		return false;
+	strcpy(creationDate, command);
+	command = strtok(NULL, ", ");
+	if (command == NULL)
+		return false;
+	strcpy(accessCount, command);
+	command = strtok(NULL, ", ");
+	if (command == NULL)
+		return false;
+	strcpy(footagePreview, command);
+	command = strtok(NULL, ", ");
+	if (command != NULL)
+		return false;
+	return this->controller->updateTape(title, filmedAt, creationDate, footagePreview, atoi(accessCount));
 }
 
 UI::UI(Controller * controller)
@@ -54,25 +92,53 @@ UI::UI(Controller * controller)
 void UI::run()
 {
 	bool readCommand = true;
-	while (readCommand)
-	{
-		char command[101];
-		std::cin.getline(command,101);
-		char *splitCommand;
-		splitCommand = strtok(command, " ");
-		bool validCommand = false;
-		strcpy(command, splitCommand);
+	char mode[21];
+	std::cin.getline(mode, 21);
+	if (strcmp(mode, "mode A") == 0) {
+		while (readCommand)
+		{
+			char command[101];
+			std::cin.getline(command, 101);
+			char *splitCommand;
+			splitCommand = strtok(command, " ");
+			
+			bool validCommand = false;
 
-		if (strcmp(command, "add")==0) {
-			validCommand = this->addTape(command);
+			strcpy(command, splitCommand);
+
+			if (strcmp(command, "add") == 0) {
+				validCommand = this->addTape(command);
+			}
+			else if (strcmp(command, "remove") == 0) {
+				validCommand = this->removeTape(command);
+			}
+			else if (strcmp(command, "update") == 0)
+			{
+				validCommand = this->updateTape(command);
+			}
+			else if (strcmp(command, "list") == 0) {
+				validCommand = this->list(command);
+			}
+			else if (strcmp(command, "exit") == 0) {
+				readCommand = false;
+				validCommand = true;
+			}
+			if (!validCommand)
+				std::cout << "Invalid command\n";
 		}
-		else if (strcmp(command, "list") == 0) {
-			validCommand = this->list(command);
+	}
+	else {
+		while (readCommand)
+		{
+			char command[101];
+			std::cin.getline(command, 101);
+			char *splitCommand;
+			splitCommand = strtok(command, " ");
+			bool validCommand = false;
+			strcpy(command, splitCommand);
+			if (strcmp(command, "exit") == 0) {
+				readCommand = false;
+			}
 		}
-		else if (strcmp(command, "exit") == 0) {
-			readCommand = false;
-		}
-		if (!validCommand)
-			std::cout << "Invalid command";
 	}
 }

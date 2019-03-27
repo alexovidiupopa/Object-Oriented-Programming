@@ -1,5 +1,6 @@
 #include "Repository.h"
 #include <stdlib.h>
+#include <iostream>
 void Repository::resize()
 {
 	capacity *= 2;
@@ -11,10 +12,10 @@ void Repository::resize()
 	tapes = temporaryRepo;
 }
 
-int Repository::searchForTape(Tape tapeToSearchFor)
+int Repository::searchForTape(char title[])
 {
 	for (int i = 0; i < length; i++)
-		if (strcmp(tapes[i].getTitle(),tapeToSearchFor.getTitle())==0)
+		if (strcmp(tapes[i].getTitle(),title)==0)
 			return i;
 	return -1;
 }
@@ -28,7 +29,7 @@ Repository::Repository()
 
 bool Repository::addTapeToRepository(Tape tapeToAdd)
 {
-	if (searchForTape(tapeToAdd)!=-1)
+	if (searchForTape(tapeToAdd.getTitle())!=-1)
 		return false;
 	if (length == capacity)
 		resize();
@@ -36,9 +37,9 @@ bool Repository::addTapeToRepository(Tape tapeToAdd)
 	return true;
 }
 
-bool Repository::removeTapeFromRepo(Tape tapeToRemove)
+bool Repository::removeTapeFromRepo(char title[])
 {
-	int index = searchForTape(tapeToRemove);
+	int index = searchForTape(title);
 	if (index==-1)
 		return false;
 	length--;
@@ -51,7 +52,7 @@ bool Repository::removeTapeFromRepo(Tape tapeToRemove)
 
 bool Repository::updateTapeInRepo(Tape tapeToUpdate)
 {
-	int index = searchForTape(tapeToUpdate);
+	int index = searchForTape(tapeToUpdate.getTitle());
 	if (index == -1)
 		return false;
 	tapes[index] = tapeToUpdate;
@@ -61,13 +62,14 @@ void Repository::getAllTapes(char tapesToGet[])
 {
 	for (int i = 0; i < length; i++) {
 		char auxiliary[21];
+		auxiliary[0] = 0;
 		strcat(tapesToGet, tapes[i].getTitle());
 		strcat(tapesToGet, " ");
 		strcat(tapesToGet, tapes[i].getFilmedAt());
 		strcat(tapesToGet, " ");
 		strcat(tapesToGet, tapes[i].getCreationDate());
 		strcat(tapesToGet, " ");
-		_itoa(tapes[i].getAccessCount(), auxiliary, 11);
+		_itoa(tapes[i].getAccessCount(), auxiliary, 10);
 		strcat(tapesToGet, auxiliary);
 		strcat(tapesToGet, " ");
 		strcat(tapesToGet, tapes[i].getFootagePreview());

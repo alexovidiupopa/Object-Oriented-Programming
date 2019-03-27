@@ -9,14 +9,14 @@ private:
 
 	void resize();
 
-	int searchForTape(Tape tapeToSearchFor);
+	int searchForTape(char title[]);
 public: 
 
 	Repository();
 	
 	bool addTapeToRepository(Tape tapeToAdd);
 
-	bool removeTapeFromRepo(Tape tapeToRemove);
+	bool removeTapeFromRepo(char title[]);
 
 	bool updateTapeInRepo(Tape tapeToUpdate);
 
