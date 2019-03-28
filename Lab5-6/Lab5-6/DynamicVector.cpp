@@ -1,38 +1,82 @@
 #include "DynamicVector.h"
 
-void DynamicVector::resize()
-{
 
+DynamicVector::DynamicVector(int capacity)
+{
+	this->size = 0;
+	this->capacity = capacity;
+	this->genericElements = new GenericElement[capacity];
 }
 
-DynamicVector::DynamicVector()
+DynamicVector::DynamicVector(const DynamicVector& vectorToCopy)
 {
-	size = 0;
-	capacity = 1;
-	elements = new GenericElement[1];
-}
-
-void DynamicVector::addToVector(GenericElement element)
-{
-	if (this->size == this->capacity)
-		this->resize();
-	this->elements[this->size++] = element;
-}
-
-void DynamicVector::deleteFromVector(GenericElement element,int position)
-{
-	this->size--;
-	for (int i = position; i < this->size; i++) {
-		this->elements[i] = this->elements[i + 1];
-	}
-}
-
-void DynamicVector::updateInVector(GenericElement element,int position)
-{
-	this->elements[position] = element;
+	this->size = vectorToCopy.size;
+	this->capacity = vectorToCopy.capacity;
+	this->genericElements = new GenericElement[this->capacity];
+	for (int i = 0; i < this->size; i++)
+		this->genericElements[i] = vectorToCopy.genericElements[i];
 }
 
 DynamicVector::~DynamicVector()
 {
-	delete[] elements;
+	delete[] this->genericElements;
+}
+
+DynamicVector& DynamicVector::operator=(const DynamicVector& vectorToAssign)
+{
+	if (this == &vectorToAssign)
+		return *this;
+
+	this->size = vectorToAssign.size;
+	this->capacity = vectorToAssign.capacity;
+
+	delete[] this->genericElements;
+	this->genericElements = new GenericElement[this->capacity];
+	for (int i = 0; i < this->size; i++)
+		this->genericElements[i] = vectorToAssign.genericElements[i];
+
+	return *this;
+}
+
+void DynamicVector::addToDynamicVector(const GenericElement& genericElementToAdd)
+{
+	if (this->size == this->capacity)
+		this->resizeDynamicVector();
+	this->genericElements[this->size++] = genericElementToAdd;
+	//this->size++;
+}
+
+void DynamicVector::resizeDynamicVector(double factor)
+{
+	this->capacity *= static_cast<int>(factor);
+
+	GenericElement* copyElements = new GenericElement[this->capacity];
+	for (int i = 0; i < this->size; i++)
+		copyElements[i] = this->genericElements[i];
+
+	delete[] this->genericElements;
+	this->genericElements = copyElements;
+}
+
+GenericElement* DynamicVector::getAllElements() const
+{
+	return this->genericElements;
+}
+
+void DynamicVector::removeFromDynamicVector(int position)
+{
+	this->size--;
+	for (int i = position; i < this->size; i++) {
+		this->genericElements[i] = this->genericElements[i + 1];
+	}
+}
+
+void DynamicVector::updateInDynamicVector(int position, const GenericElement & genericElementToUpdate)
+{
+	this->genericElements[position] = genericElementToUpdate;
+}
+
+int DynamicVector::getSize() const
+{
+	return this->size;
 }

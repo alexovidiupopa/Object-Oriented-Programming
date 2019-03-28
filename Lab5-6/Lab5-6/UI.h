@@ -4,13 +4,13 @@ class UI {
 
 private:
 
-	Controller* controller;
+	Controller controller;
 
 	bool addTape(char command[]);
 	bool list(char command[]);
 	bool removeTape(char command[]);
 	bool updateTape(char command[]);
 public:
-	UI(Controller* controller);
+	UI(const Controller& controller) : controller(controller) {};
 	void run();
 };

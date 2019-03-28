@@ -6,12 +6,12 @@ class Controller {
 
 private:
 
-	Repository* repository;
-	Validator* validator;
+	Repository repository;
+	Validator validator;
 
 public:
 
-	Controller(Repository* repository, Validator* validator);
+	Controller(Repository& repository) : repository{ repository } {}
 
 	bool addTape(char givenTitle[], char givenFilmedAt[], char givenCreationDate[], char givenFootagePreview[], int givenAccessCount);
 
@@ -21,5 +21,4 @@ public:
 
 	void listTapes(char tapesToPrint[]);
 
-	~Controller();
 };

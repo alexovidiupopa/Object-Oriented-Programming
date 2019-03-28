@@ -1,5 +1,4 @@
 #pragma once
+#include "Controller.h"
 
-#include "Repository.h"
-void testCreate();
-void testRepo();
+void runTests();

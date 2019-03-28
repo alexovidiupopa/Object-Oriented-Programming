@@ -1,18 +1,15 @@
 #pragma once
-#include "Tape.h"
+#include "DynamicVector.h"
 
 class Repository {
 
 private:
-	int length, capacity;
-	Tape* tapes;
-
-	void resize();
+	DynamicVector tapes;
 
 	int searchForTape(char title[]);
-public: 
+public:
 
-	Repository();
+	Repository() {}
 	
 	bool addTapeToRepository(Tape tapeToAdd);
 
@@ -20,10 +17,7 @@ public:
 
 	bool updateTapeInRepo(Tape tapeToUpdate);
 
-	void getAllTapes(char tapes[]);
+	DynamicVector getAllTapes();
 
-	Repository* copyRepository();
-
-	~Repository();
 };
 
