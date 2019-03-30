@@ -43,20 +43,5 @@ bool Repository::updateTapeInRepo(Tape tapeToUpdate)
 
 DynamicVector Repository::getAllTapes()
 {
-	/*for (int i = 0; i < length; i++) {
-		char auxiliary[21];
-		auxiliary[0] = 0;
-		strcat(tapesToGet, tapes[i].getTitle());
-		strcat(tapesToGet, " ");
-		strcat(tapesToGet, tapes[i].getFilmedAt());
-		strcat(tapesToGet, " ");
-		strcat(tapesToGet, tapes[i].getCreationDate());
-		strcat(tapesToGet, " ");
-		_itoa(tapes[i].getAccessCount(), auxiliary, 10);
-		strcat(tapesToGet, auxiliary);
-		strcat(tapesToGet, " ");
-		strcat(tapesToGet, tapes[i].getFootagePreview());
-		strcat(tapesToGet, "\n");
-	}*/
 	return this->tapes;
 }

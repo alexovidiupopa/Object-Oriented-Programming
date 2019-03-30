@@ -48,7 +48,7 @@ bool UI::list(char command[])
 
 bool UI::removeTape(char command[])
 {
-	char title[21];
+	char title[31];
 	command = strtok(NULL, " ");
 	if (command == NULL)
 		return false;
@@ -98,10 +98,12 @@ void UI::run()
 	char mode[21];
 	std::cin.getline(mode, 21);
 	if (strcmp(mode, "mode A") == 0) {
-		while (readCommand)
+		this->mode = 'A';
+		/*while (readCommand)
 		{
 			char command[101];
 			std::cin.getline(command, 101);
+			
 			char *splitCommand;
 			splitCommand = strtok(command, " ");
 			
@@ -112,7 +114,7 @@ void UI::run()
 			if (strcmp(command, "add") == 0) {
 				validCommand = this->addTape(command);
 			}
-			else if (strcmp(command, "remove") == 0) {
+			else if (strcmp(command, "delete") == 0) {
 				validCommand = this->removeTape(command);
 			}
 			else if (strcmp(command, "update") == 0)
@@ -123,27 +125,37 @@ void UI::run()
 				validCommand = this->list(command);
 			}
 			else if (strcmp(command, "exit") == 0) {
-				return;
+				readCommand = false;
 			}
 			if (!validCommand)
 				std::cout << "Invalid command\n";
-		}
+		}*/
+	}
+	else if (strcmp(mode,"mode B")==0)  {
+		this->mode = 'B';
 	}
 	else {
-		while (readCommand)
-		{
-			char command[101];
-			std::cin.getline(command, 101);
-			char *splitCommand;
-			splitCommand = strtok(command, " ");
-			bool validCommand = false;
-			strcpy(command, splitCommand);
-			if (strcmp(command, "exit") == 0) {
-				return;
-			}
-			else {
-				continue;
-			}
+		return;
+	}
+	while (readCommand) {
+		char command[101];
+		std::cin.getline(command, 101);
+
+		char *splitCommand;
+		splitCommand = strtok(command, " ");
+
+		bool validCommand = false;
+
+		strcpy(command, splitCommand);
+
+		
+		switch (this->mode) {
+		case 'A':
+			break;
+		case 'B':
+			break;
+		default:
+			return;
 		}
 	}
 }

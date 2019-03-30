@@ -5,7 +5,7 @@ class UI {
 private:
 
 	Controller controller;
-
+	char mode;
 	bool addTape(char command[]);
 	bool list(char command[]);
 	bool removeTape(char command[]);

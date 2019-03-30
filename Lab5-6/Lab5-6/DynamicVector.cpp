@@ -43,7 +43,7 @@ void DynamicVector::addToDynamicVector(const GenericElement& genericElementToAdd
 	if (this->size == this->capacity)
 		this->resizeDynamicVector();
 	this->genericElements[this->size++] = genericElementToAdd;
-	//this->size++;
+	
 }
 
 void DynamicVector::resizeDynamicVector(double factor)
@@ -69,6 +69,7 @@ void DynamicVector::removeFromDynamicVector(int position)
 	for (int i = position; i < this->size; i++) {
 		this->genericElements[i] = this->genericElements[i + 1];
 	}
+	
 }
 
 void DynamicVector::updateInDynamicVector(int position, const GenericElement & genericElementToUpdate)
