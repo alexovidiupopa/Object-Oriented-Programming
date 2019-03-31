@@ -35,5 +35,6 @@ public:
 	Tape& operator=(const Tape& tapeToCheck);
 	bool operator==(const Tape& tapeToCheck);
 
+	void toString(char stringToPrint[]);
 	~Tape();
 };

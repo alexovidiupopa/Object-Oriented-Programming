@@ -1,5 +1,5 @@
 #include "Tape.h"
-
+#include <stdlib.h>
 Tape::Tape()
 {
 }
@@ -75,6 +75,20 @@ Tape & Tape::operator=(const Tape & tapeToCheck)
 bool Tape::operator==(const Tape & tapeToCheck)
 {
 	return strcmp(this->title, tapeToCheck.title) == 0;
+}
+
+void Tape::toString(char stringToPrint[])
+{
+	char auxiliary[21];
+	auxiliary[0] = 0;
+	strcat(stringToPrint, title);
+	strcat(stringToPrint, filmedAt);
+	strcat(stringToPrint, creationDate);
+	strcat(stringToPrint, " ");
+	_itoa(accessCount, auxiliary, 10);
+	strcat(stringToPrint, auxiliary);
+	strcat(stringToPrint, footagePreview);
+	strcat(stringToPrint, "\n");
 }
 
 Tape::~Tape()

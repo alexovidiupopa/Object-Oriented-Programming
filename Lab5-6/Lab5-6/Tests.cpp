@@ -3,50 +3,110 @@
 #include <iostream>
 void testCreate()
 {
-	char s[]="abc", s2[] = "abc", s3[] = "abc", s4[] = "abc";
-	Tape t(s,s2,s3,s4,10);
-	assert(t.getAccessCount() == 10);
-	t.setAccessCount(20);
-	assert(t.getAccessCount() == 20);
+	//test tape creator
+	char testTitle[]="F1234", testFilmedAt[] = "restaurant back", testCreationDate[] = "31-03-19", testFootagePreview[] = "firstTape.mp4";
+	Tape testTape(testTitle, testFilmedAt,testCreationDate,testFootagePreview,10);
+	assert(testTape.getAccessCount() == 10);
+	testTape.setAccessCount(20);
+	assert(testTape.getAccessCount() == 20);
 }
 
 void testRepo()
 {
-	Repository r{};
-	char s[] = "abc", s2[] = "abc", s3[] = "abc", s4[] = "abc";
-	Tape t(s, s2, s3, s4, 10);
-	assert(r.addTapeToRepository(t));
-	assert(!r.addTapeToRepository(t));
-	assert(r.removeTapeFromRepo(t.getTitle()));
-	assert(r.addTapeToRepository(t));
-	strcpy(s2, "abd");
-	Tape t2(s, s2, s3, s4, 10);
-	assert(r.updateTapeInRepo(t2));
-	DynamicVector dv = r.getAllTapes();
-	Tape* elems = dv.getAllElements();
-	assert(strcmp(elems[0].getFilmedAt(), "abd") == 0);
+	Repository testRepository{};
+	
+	char testTitle[] = "F1234", testFilmedAt[] = "restaurant back", testCreationDate[] = "31-03-19", testFootagePreview[] = "firstTape.mp4";
+	Tape testTape(testTitle, testFilmedAt, testCreationDate, testFootagePreview, 10);
+	
+	//repository add test
+	assert(testRepository.addTapeToRepository(testTape));
+	assert(!testRepository.addTapeToRepository(testTape));
+	
+	//repository remove test
+	assert(testRepository.removeTapeFromRepo(testTape.getTitle()));
+	assert(testRepository.addTapeToRepository(testTape));
+	
+	//repository update test
+	strcpy(testFilmedAt, "random place");
+	Tape testTape2(testTitle, testFilmedAt, testCreationDate, testFootagePreview, 10);
+	assert(testRepository.updateTapeInRepo(testTape2));
+	
+	//repository list test
+	DynamicVector<Tape> testTapesRepository  = testRepository.getAllTapes();
+	Tape* testTapes = testTapesRepository.getAllElements();
+	assert(strcmp(testTapes[0].getFilmedAt(), "random place") == 0);
 }
 
-void testController()
+void testAdminModeController()
 {
-	Repository r{};
-	Controller c{ r };
-	char s[] = "abc", s2[] = "here there", s3[] = "creation date", s4[] = "preview";
-	assert(c.addTape(s,s2,s3,s4,10));
-	char x[10] = "abdcefgh", x2[25] = "here there", x3[] = "creation date", x4[] = "preview";
-	assert(c.addTape(x, x2, x3, x4, 11));
-	strcat(x, "x");
-	assert(!c.removeTape(x));
-	assert(c.removeTape(s));
-	strcat(x2, " everywhere");
-	strcpy(x, "abdcefgh");
-	assert(c.updateTape(x, x2, x3, x4, 12));
-	strcpy(x, "abdcefg2h");
-	assert(!c.updateTape(x, x2, x3, x4, 12));
+	Repository testRepository{};
+	Controller testController{ testRepository };
+	
+	//controller add test
+	char testTitle[] = "abc", testFilmedAt[] = "here there", testCreationDate[] = "creation date", testFootagePreview[] = "preview.mp4";
+	assert(testController.addTape(testTitle, testFilmedAt,testCreationDate,testFootagePreview,10));
+	char testTitle2[10] = "abdcefgh", testFilmedAt2[25] = "here there", testCreationDate2[] = "creation date", testFootagePreview2[] = "preview.mp4";
+	assert(testController.addTape(testTitle2, testFilmedAt2, testCreationDate2, testFootagePreview2, 11));
+	
+	//controller remove test
+	strcat(testTitle2, "x");
+	assert(!testController.removeTape(testTitle2));
+	assert(testController.removeTape(testTitle));
+	
+	//controller update test
+	strcat(testFilmedAt2, " everywhere");
+	strcpy(testTitle2, "abdcefgh");
+	assert(testController.updateTape(testTitle2, testFilmedAt2, testCreationDate2, testFootagePreview2, 12));
+	strcpy(testTitle2, "abdcefg2h");
+	assert(!testController.updateTape(testTitle2, testFilmedAt2, testCreationDate2, testFootagePreview2, 12));
+}
+
+void testUserModeController()
+{
+	Repository testRepository{};
+	Controller testController{ testRepository };
+	
+	//test the "next" feature
+	char testTitle[10] = "F1234", testFilmedAt[] = "restaurant back", testCreationDate[] = "31-03-19", testFootagePreview[] = "firstTape.mp4";
+	testController.addTape(testTitle, testFilmedAt, testCreationDate, testFootagePreview, 10);
+	testController.initializeIndex();
+	Tape nextTape = testController.nextInPlaylist();
+	assert(nextTape.getAccessCount() == 10);
+	
+	//again
+	strcpy(testTitle, "F12345");
+	testController.addTape(testTitle, testFilmedAt, testCreationDate, testFootagePreview, 11);
+	nextTape = testController.nextInPlaylist();
+	assert(nextTape.getAccessCount() == 11);
+	
+	//test the "save" + "mylist" features
+	assert(testController.saveToPlaylist(testTitle)==true);
+	char playlist[1001];
+	playlist[0] = 0;
+	testController.listPlaylist(playlist);
+	assert(strcmp(playlist, "F12345restaurant back31-03-19 11firstTape.mp4\n") == 0);
+	
+	//again
+	strcpy(testTitle, "F1234");
+	assert(testController.saveToPlaylist(testTitle) == true);
+	playlist[0] = 0;
+	testController.listPlaylist(playlist);
+	assert(strcmp(playlist, "F12345restaurant back31-03-19 11firstTape.mp4\nF1234restaurant back31-03-19 10firstTape.mp4\n") == 0);
+
+	//test for wrong save title
+	strcpy(testTitle, "F12");
+	assert(testController.saveToPlaylist(testTitle) == false);
+
+	//test list filmedAt, accessCount
+	char specialTestList[1001];
+	specialTestList[0] = 0;
+	testController.listTapesFilmedAtLessThanCount(specialTestList, testFilmedAt, 11);
+	assert(strcmp(specialTestList, "F1234restaurant back31-03-19 10firstTape.mp4\n") == 0);
 }
 void runTests()
 {
 	testCreate();
 	testRepo();
-	testController();
+	testAdminModeController();
+	testUserModeController();
 }

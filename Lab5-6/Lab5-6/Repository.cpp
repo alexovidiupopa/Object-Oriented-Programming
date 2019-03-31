@@ -4,7 +4,7 @@
 
 int Repository::searchForTape(char title[])
 {
-	GenericElement* tapes = this->tapes.getAllElements();
+	Tape* tapes = this->tapes.getAllElements();
 	int length = this->tapes.getSize();
 	for (int i = 0; i < length; i++)
 		if (strcmp(tapes[i].getTitle(),title)==0)
@@ -41,7 +41,22 @@ bool Repository::updateTapeInRepo(Tape tapeToUpdate)
 	return true;
 }
 
-DynamicVector Repository::getAllTapes()
+DynamicVector<Tape>Repository::getAllTapes()
 {
 	return this->tapes;
+}
+
+DynamicVector<Tape> Repository::getPlaylist()
+{
+	return this->playlist;
+}
+
+bool Repository::saveTape(char givenTitle[])
+{
+	int index = searchForTape(givenTitle);
+	if (index == -1)
+		return false;
+	Tape* tapes = this->tapes.getAllElements();
+	this->playlist.addToDynamicVector(tapes[index]);
+	return true;
 }

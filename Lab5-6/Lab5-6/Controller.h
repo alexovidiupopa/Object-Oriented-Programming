@@ -1,14 +1,12 @@
 #pragma once
 #include "Repository.h"
-#include "Validator.h"
 
 class Controller {
 
 private:
 
 	Repository repository;
-	Validator validator;
-
+	int indexForPlaylistIterating;
 public:
 
 	Controller(Repository& repository) : repository{ repository } {}
@@ -21,4 +19,13 @@ public:
 
 	void listTapes(char tapesToPrint[]);
 
+	void listTapesFilmedAtLessThanCount(char tapesToPrint[], char givenFilmedAt[], int givenAccessCount);
+
+	void listPlaylist(char playlistToBeListed[]);
+
+	bool saveToPlaylist(char givenTitle[]);
+
+	void initializeIndex();
+
+	Tape nextInPlaylist();
 };

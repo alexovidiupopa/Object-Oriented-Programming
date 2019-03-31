@@ -1,11 +1,11 @@
 #pragma once
 #include "DynamicVector.h"
-
+#include "Tape.h"
 class Repository {
 
 private:
-	DynamicVector tapes;
-
+	DynamicVector<Tape> tapes;
+	DynamicVector<Tape> playlist;
 	int searchForTape(char title[]);
 public:
 
@@ -17,7 +17,11 @@ public:
 
 	bool updateTapeInRepo(Tape tapeToUpdate);
 
-	DynamicVector getAllTapes();
+	DynamicVector<Tape> getAllTapes();
+
+	DynamicVector<Tape> getPlaylist();
+
+	bool saveTape(char givenTitle[]);
 
 };
 

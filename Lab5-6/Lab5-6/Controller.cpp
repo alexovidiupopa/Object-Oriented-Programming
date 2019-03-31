@@ -1,18 +1,8 @@
 #include "Controller.h"
 #include <iostream>
 
-
-/*Controller::Controller(Repository & repository, Validator & validator)
-{
-	this->repository = repository;
-	this->validator = validator;
-}*/
-
 bool Controller::addTape(char givenTitle[], char givenFilmedAt[], char givenCreationDate[], char givenFootagePreview[], int givenAccessCount)
 {
-	/*if (!this->validator.validateData(givenTitle, givenFilmedAt, givenCreationDate, givenFootagePreview, givenAccessCount))
-		return false;*/
-
 	Tape TapeToAdd(givenTitle, givenFilmedAt, givenCreationDate, givenFootagePreview, givenAccessCount);
 	return this->repository.addTapeToRepository(TapeToAdd);
 }
@@ -24,33 +14,62 @@ bool Controller::removeTape(char givenTitle[])
 
 bool Controller::updateTape(char givenTitle[], char givenFilmedAt[], char givenCreationDate[], char givenFootagePreview[], int givenAccessCount)
 {
-	/*if (!this->validator.validateData(givenTitle, givenFilmedAt, givenCreationDate, givenFootagePreview, givenAccessCount))
-		return false;*/
-
 	Tape TapeToAdd(givenTitle, givenFilmedAt, givenCreationDate, givenFootagePreview, givenAccessCount);
 	return this->repository.updateTapeInRepo(TapeToAdd);
 }
 
 void Controller::listTapes(char tapesToPrint[])
 {
-	DynamicVector tapesDynamicVector = this->repository.getAllTapes();
-	GenericElement* tapesFromTheRepository = tapesDynamicVector.getAllElements();
+	DynamicVector<Tape>tapesDynamicVector = this->repository.getAllTapes();
+	Tape* tapesFromTheRepository = tapesDynamicVector.getAllElements();
 	for (int i = 0; i < tapesDynamicVector.getSize(); i++)
 	{
-		char auxiliary[21];
-		auxiliary[0] = 0;
-		strcat(tapesToPrint, tapesFromTheRepository[i].getTitle());
-		//strcat(tapesToPrint, " ");
-		strcat(tapesToPrint, tapesFromTheRepository[i].getFilmedAt());
-		//strcat(tapesToPrint, " ");
-		strcat(tapesToPrint, tapesFromTheRepository[i].getCreationDate());
-		strcat(tapesToPrint, " ");
-		_itoa(tapesFromTheRepository[i].getAccessCount(), auxiliary, 10);
-		strcat(tapesToPrint, auxiliary);
-		//strcat(tapesToPrint, " ");
-		strcat(tapesToPrint, tapesFromTheRepository[i].getFootagePreview());
-		strcat(tapesToPrint, "\n");
+		tapesFromTheRepository[i].toString(tapesToPrint);
 	}
 	
 }
+
+void Controller::listTapesFilmedAtLessThanCount(char tapesToPrint[], char givenFilmedAt[], int givenAccessCount)
+{
+	DynamicVector<Tape> tapesRepository = this->repository.getAllTapes();
+	Tape* tapesFromTheRepository = tapesRepository.getAllElements();
+	int length = tapesRepository.getSize();
+	for (int i = 0; i < length; i++) {
+		if (strcmp(tapesFromTheRepository[i].getFilmedAt(), givenFilmedAt) == 0 && tapesFromTheRepository[i].getAccessCount() < givenAccessCount)
+		{
+			tapesFromTheRepository[i].toString(tapesToPrint);
+		}
+	}
+}
+
+void Controller::listPlaylist(char playlistToBeListed[])
+{
+	DynamicVector<Tape> playlistRepository = this->repository.getPlaylist();
+	Tape* playlistFromRepository = playlistRepository.getAllElements();
+	int length = playlistRepository.getSize();
+	for (int i = 0; i < length; i++) {
+		playlistFromRepository[i].toString(playlistToBeListed);
+	}
+}
+
+bool Controller::saveToPlaylist(char givenTitle[])
+{
+	return this->repository.saveTape(givenTitle);
+}
+
+void Controller::initializeIndex()
+{
+	this->indexForPlaylistIterating = 0;
+}
+
+Tape Controller::nextInPlaylist()
+{
+	DynamicVector<Tape> tapesRepository = this->repository.getAllTapes();
+	if (this->indexForPlaylistIterating == tapesRepository.getSize())
+		this->indexForPlaylistIterating = 0;
+	Tape* tapes = tapesRepository.getAllElements();
+	this->indexForPlaylistIterating++;
+	return tapes[this->indexForPlaylistIterating -1];
+}
+
 

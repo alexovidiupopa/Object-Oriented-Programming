@@ -5,7 +5,6 @@
 int main() {
 	runTests();
 	Repository repository{};
-	Validator validator ();
 	Controller controller{repository};
 	UI ui{ controller };
 	ui.run();

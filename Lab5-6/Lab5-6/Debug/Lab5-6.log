@@ -1,54 +1,18 @@
-﻿  UI.cpp
-d:\oop\object-oriented-programming\lab5-6\lab5-6\ui.cpp(8): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(440): note: see declaration of 'strtok'
-d:\oop\object-oriented-programming\lab5-6\lab5-6\ui.cpp(11): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
-d:\oop\object-oriented-programming\lab5-6\lab5-6\ui.cpp(12): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(440): note: see declaration of 'strtok'
-d:\oop\object-oriented-programming\lab5-6\lab5-6\ui.cpp(15): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
-d:\oop\object-oriented-programming\lab5-6\lab5-6\ui.cpp(16): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(440): note: see declaration of 'strtok'
-d:\oop\object-oriented-programming\lab5-6\lab5-6\ui.cpp(19): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
-d:\oop\object-oriented-programming\lab5-6\lab5-6\ui.cpp(20): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(440): note: see declaration of 'strtok'
-d:\oop\object-oriented-programming\lab5-6\lab5-6\ui.cpp(23): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
-d:\oop\object-oriented-programming\lab5-6\lab5-6\ui.cpp(27): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(440): note: see declaration of 'strtok'
-d:\oop\object-oriented-programming\lab5-6\lab5-6\ui.cpp(30): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
-d:\oop\object-oriented-programming\lab5-6\lab5-6\ui.cpp(31): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(440): note: see declaration of 'strtok'
-d:\oop\object-oriented-programming\lab5-6\lab5-6\ui.cpp(39): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(440): note: see declaration of 'strtok'
-d:\oop\object-oriented-programming\lab5-6\lab5-6\ui.cpp(52): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(440): note: see declaration of 'strtok'
-d:\oop\object-oriented-programming\lab5-6\lab5-6\ui.cpp(55): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
-d:\oop\object-oriented-programming\lab5-6\lab5-6\ui.cpp(56): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(440): note: see declaration of 'strtok'
-d:\oop\object-oriented-programming\lab5-6\lab5-6\ui.cpp(66): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(440): note: see declaration of 'strtok'
-d:\oop\object-oriented-programming\lab5-6\lab5-6\ui.cpp(69): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
-d:\oop\object-oriented-programming\lab5-6\lab5-6\ui.cpp(70): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(440): note: see declaration of 'strtok'
-d:\oop\object-oriented-programming\lab5-6\lab5-6\ui.cpp(73): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
-d:\oop\object-oriented-programming\lab5-6\lab5-6\ui.cpp(74): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(440): note: see declaration of 'strtok'
-d:\oop\object-oriented-programming\lab5-6\lab5-6\ui.cpp(77): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
-d:\oop\object-oriented-programming\lab5-6\lab5-6\ui.cpp(78): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(440): note: see declaration of 'strtok'
-d:\oop\object-oriented-programming\lab5-6\lab5-6\ui.cpp(81): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
-d:\oop\object-oriented-programming\lab5-6\lab5-6\ui.cpp(85): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(440): note: see declaration of 'strtok'
-d:\oop\object-oriented-programming\lab5-6\lab5-6\ui.cpp(88): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
-d:\oop\object-oriented-programming\lab5-6\lab5-6\ui.cpp(89): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(440): note: see declaration of 'strtok'
-  Lab5-6.vcxproj -> D:\OOP\Object-Oriented-Programming\Lab5-6\Debug\Lab5-6.exe
+﻿  Tests.cpp
+d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\tests.cpp(30): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
+d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\tests.cpp(48): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(90): note: see declaration of 'strcat'
+d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\tests.cpp(51): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(90): note: see declaration of 'strcat'
+d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\tests.cpp(52): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
+d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\tests.cpp(54): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
+d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\tests.cpp(71): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
+d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\tests.cpp(84): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
+d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\tests.cpp(91): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
+  Lab5-6.vcxproj -> D:\Facultate\Semestrul 2\Object-Oriented-Programming\Object-Oriented-Programming\Lab5-6\Debug\Lab5-6.exe
