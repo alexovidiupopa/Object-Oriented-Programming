@@ -194,8 +194,6 @@ void UI::run()
 				}
 				else if (strcmp(command, "exit") == 0) {
 					return;
-					//readCommand = false;
-					//validCommand = true;
 				}
 				if (!validCommand) {
 					//std::cout << "Invalid command\n";
@@ -228,7 +226,6 @@ void UI::run()
 				else if (strcmp(command, "exit") == 0)
 				{
 					return;
-					//validCommand = true;
 				}
 				if (!validCommand) {
 					//std::cout << "Invalid command\n";

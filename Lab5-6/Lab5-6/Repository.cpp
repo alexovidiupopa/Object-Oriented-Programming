@@ -12,8 +12,6 @@ int Repository::searchForTape(char title[])
 	return -1;
 }
 
-
-
 bool Repository::addTapeToRepository(Tape tapeToAdd)
 {
 	if (searchForTape(tapeToAdd.getTitle())!=-1)

@@ -1,0 +1,13 @@
+﻿  Controller.cpp
+  Repository.cpp
+  RobotTile.cpp
+  Source.cpp
+  Tests.cpp
+c:\users\alex\source\repos\labtest1\labtest1\tests.cpp(12): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
+c:\users\alex\source\repos\labtest1\labtest1\tests.cpp(14): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  d:\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
+  UI.cpp
+c:\users\alex\source\repos\labtest1\labtest1\ui.cpp(6): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  labTest1.vcxproj -> C:\Users\Alex\source\repos\labTest1\Debug\labTest1.exe

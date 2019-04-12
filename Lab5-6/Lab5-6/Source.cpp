@@ -8,6 +8,6 @@ int main() {
 	Controller controller{repository};
 	UI ui{ controller };
 	ui.run();
-	system("pause");
+	//system("pause");
 	return 0;
 }
