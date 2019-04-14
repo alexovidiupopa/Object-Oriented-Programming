@@ -130,6 +130,7 @@
   <ItemGroup>
     <ClInclude Include="Controller.h" />
     <ClInclude Include="DynamicVector.h" />
+    <ClInclude Include="Exceptions.h" />
     <ClInclude Include="Repository.h" />
     <ClInclude Include="Tape.h" />
     <ClInclude Include="Tests.h" />

@@ -1,5 +1,4 @@
 #include "UI.h"
-#include <Windows.h>
 #include "Tests.h"
 
 int main() {
@@ -8,6 +7,5 @@ int main() {
 	Controller controller{repository};
 	UI ui{ controller };
 	ui.run();
-	//system("pause");
 	return 0;
 }

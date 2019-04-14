@@ -1,5 +1,6 @@
 #pragma once
 #include <cstring>
+#include <iostream>
 class Tape {
 	
 private:
@@ -34,7 +35,6 @@ public:
 
 	Tape& operator=(const Tape& tapeToCheck);
 	bool operator==(const Tape& tapeToCheck);
-
-	void toString(char stringToPrint[]);
+	friend std::ostream& operator<<(std::ostream &os, const Tape& tapeToPrint);
 	~Tape();
 };

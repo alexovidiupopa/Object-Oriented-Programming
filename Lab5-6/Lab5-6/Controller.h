@@ -17,11 +17,11 @@ public:
 
 	bool updateTape(char givenTitle[], char givenFilmedAt[], char givenCreationDate[], char givenFootagePreview[], int givenAccessCount);
 
-	void listTapes(char tapesToPrint[]);
+	std::vector<Tape> listTapes();
 
-	void listTapesFilmedAtLessThanCount(char tapesToPrint[], char givenFilmedAt[], int givenAccessCount);
+	std::vector<Tape> listTapesFilmedAtLessThanCount(char givenFilmedAt[], int givenAccessCount);
 
-	void listPlaylist(char playlistToBeListed[]);
+	std::vector<Tape> listPlaylist();
 
 	bool saveToPlaylist(char givenTitle[]);
 

@@ -1,11 +1,12 @@
 #pragma once
-#include "DynamicVector.h"
+#include <vector>
 #include "Tape.h"
+#include "Exceptions.h"
 class Repository {
 
 private:
-	DynamicVector<Tape> tapes;
-	DynamicVector<Tape> playlist;
+	std::vector<Tape> tapes;
+	std::vector<Tape> playlist;
 	int searchForTape(char title[]);
 public:
 
@@ -17,9 +18,9 @@ public:
 
 	bool updateTapeInRepo(Tape tapeToUpdate);
 
-	DynamicVector<Tape> getAllTapes();
+	std::vector<Tape> getAllTapes();
 
-	DynamicVector<Tape> getPlaylist();
+	std::vector<Tape> getPlaylist();
 
 	bool saveTape(char givenTitle[]);
 

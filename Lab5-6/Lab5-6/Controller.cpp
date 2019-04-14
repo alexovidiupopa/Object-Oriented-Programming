@@ -18,38 +18,35 @@ bool Controller::updateTape(char givenTitle[], char givenFilmedAt[], char givenC
 	return this->repository.updateTapeInRepo(TapeToAdd);
 }
 
-void Controller::listTapes(char tapesToPrint[])
+std::vector<Tape> Controller::listTapes()
 {
-	DynamicVector<Tape>tapesDynamicVector = this->repository.getAllTapes();
-	Tape* tapesFromTheRepository = tapesDynamicVector.getAllElements();
-	for (int i = 0; i < tapesDynamicVector.getSize(); i++)
+	return this->repository.getAllTapes();
+	/*for (auto it : this->repository.getAllTapes())
 	{
-		tapesFromTheRepository[i].toString(tapesToPrint);
-	}
+		it.toString(tapesToPrint);
+	}*/
 	
 }
 
-void Controller::listTapesFilmedAtLessThanCount(char tapesToPrint[], char givenFilmedAt[], int givenAccessCount)
+std::vector<Tape> Controller::listTapesFilmedAtLessThanCount(char givenFilmedAt[], int givenAccessCount)
 {
-	DynamicVector<Tape> tapesRepository = this->repository.getAllTapes();
-	Tape* tapesFromTheRepository = tapesRepository.getAllElements();
-	int length = tapesRepository.getSize();
-	for (int i = 0; i < length; i++) {
-		if (strcmp(tapesFromTheRepository[i].getFilmedAt(), givenFilmedAt) == 0 && tapesFromTheRepository[i].getAccessCount() < givenAccessCount)
+	std::vector<Tape> tapesToPrint;
+	for (auto it: this->repository.getAllTapes()) {
+		if (strcmp(it.getFilmedAt(), givenFilmedAt) == 0 && it.getAccessCount() < givenAccessCount)
 		{
-			tapesFromTheRepository[i].toString(tapesToPrint);
+			tapesToPrint.push_back(it);
 		}
 	}
+	return tapesToPrint;
 }
 
-void Controller::listPlaylist(char playlistToBeListed[])
+std::vector<Tape> Controller::listPlaylist()
 {
-	DynamicVector<Tape> playlistRepository = this->repository.getPlaylist();
-	Tape* playlistFromRepository = playlistRepository.getAllElements();
-	int length = playlistRepository.getSize();
-	for (int i = 0; i < length; i++) {
-		playlistFromRepository[i].toString(playlistToBeListed);
+	std::vector<Tape> playlistToPrint;
+	for (auto it : this->repository.getPlaylist()) {
+		playlistToPrint.push_back(it);
 	}
+	return playlistToPrint;
 }
 
 bool Controller::saveToPlaylist(char givenTitle[])
@@ -64,12 +61,11 @@ void Controller::initializeIndex()
 
 Tape Controller::nextInPlaylist()
 {
-	DynamicVector<Tape> tapesRepository = this->repository.getAllTapes();
-	if (this->indexForPlaylistIterating == tapesRepository.getSize())
+	std::vector<Tape> tapesRepository = this->repository.getAllTapes();
+	if (this->indexForPlaylistIterating == tapesRepository.size())
 		this->indexForPlaylistIterating = 0;
-	Tape* tapes = tapesRepository.getAllElements();
 	this->indexForPlaylistIterating++;
-	return tapes[this->indexForPlaylistIterating -1];
+	return tapesRepository[this->indexForPlaylistIterating -1];
 }
 
 

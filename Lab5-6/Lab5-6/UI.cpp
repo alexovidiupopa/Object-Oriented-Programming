@@ -7,30 +7,30 @@ bool UI::addTape(char command[])
 	int integerAccessCount;
 	command = strtok(NULL, ",");
 	if (command == NULL)
-		return false;
+		throw UserInputException("Input error");
 	strcpy(title, command);
 	command = strtok(NULL, ",");
 	if (command == NULL)
-		return false;
+		throw UserInputException("Input error");
 	strcpy(filmedAt, command);
 	command = strtok(NULL, ",");
 	if (command == NULL)
-		return false;
+		throw UserInputException("Input error");
 	strcpy(creationDate, command);
 	command = strtok(NULL, ",");
 	if (command == NULL)
-		return false;
+		throw UserInputException("Input error");
 	strcpy(accessCount, command);
 	integerAccessCount = atoi(accessCount);
 	if (integerAccessCount == 0)
-		return false;
+		throw UserInputException("Input error");
 	command = strtok(NULL, ",");
 	if (command == NULL)
-		return false;
+		throw UserInputException("Input error");
 	strcpy(footagePreview, command);
 	command = strtok(NULL, ",");
 	if (command != NULL)
-		return false;
+		throw UserInputException("Input error");
 	return this->controller.addTape(title, filmedAt, creationDate, footagePreview, atoi(accessCount));
 }
 
@@ -38,13 +38,14 @@ bool UI::list(char command[])
 {
 	command = strtok(NULL, ",");
 	if (command == NULL) {
-		char tapes[1001];
-		tapes[0] = 0;
-		this->controller.listTapes(tapes);
-		std::cout << tapes;
+		
+		std::vector<Tape> tapes = this->controller.listTapes();
+		for (auto it : tapes)
+			std::cout << it;
 		return true;
 	}
-	return false;
+	throw UserInputException("Input error");
+	
 }
 
 bool UI::removeTape(char command[])
@@ -52,11 +53,11 @@ bool UI::removeTape(char command[])
 	char title[31];
 	command = strtok(NULL, " ");
 	if (command == NULL)
-		return false;
+		throw UserInputException("Input error");
 	strcpy(title, command);
 	command = strtok(NULL, " ");
 	if (command != NULL)
-		return false;
+		throw UserInputException("Input error");
 	return this->controller.removeTape(title);
 }
 
@@ -66,30 +67,30 @@ bool UI::updateTape(char command[])
 	int integerAccessCount;
 	command = strtok(NULL, ",");
 	if (command == NULL)
-		return false;
+		throw UserInputException("Input error");
 	strcpy(title, command);
 	command = strtok(NULL, ",");
 	if (command == NULL)
-		return false;
+		throw UserInputException("Input error");
 	strcpy(filmedAt, command);
 	command = strtok(NULL, ",");
 	if (command == NULL)
-		return false;
+		throw UserInputException("Input error");
 	strcpy(creationDate, command);
 	command = strtok(NULL, ",");
 	if (command == NULL)
-		return false;
+		throw UserInputException("Input error");
 	strcpy(accessCount, command);
 	integerAccessCount = atoi(accessCount);
 	if (integerAccessCount == 0)
-		return false;
+		throw UserInputException("Input error");
 	command = strtok(NULL, ",");
 	if (command == NULL)
-		return false;
+		throw UserInputException("Input error");
 	strcpy(footagePreview, command);
 	command = strtok(NULL, ",");
 	if (command != NULL)
-		return false;
+		throw UserInputException("Input error");
 	return this->controller.updateTape(title, filmedAt, creationDate, footagePreview, atoi(accessCount));
 }
 
@@ -97,22 +98,22 @@ bool UI::listWhenInUserMode(char command[])
 {
 	char filmedAt[31], accessCount[31];
 	int integerAccessCount;
+	std::cout << "saddaad";
 	command = strtok(NULL, ",");
 	if (command == NULL)
-		return false;
+		throw UserInputException("Input error");
 	strcpy(filmedAt, " ");
 	strcat(filmedAt, command);
 	command = strtok(NULL, ",");
 	if (command == NULL)
-		return false;
+		throw UserInputException("Input error");
 	strcpy(accessCount, command);
 	integerAccessCount = atoi(accessCount);
 	if (integerAccessCount == 0)
-		return false;
-	char tapes[1001];
-	tapes[0] = 0;
-	this->controller.listTapesFilmedAtLessThanCount(tapes, filmedAt, integerAccessCount);
-	std::cout << tapes;
+		throw UserInputException("Input error");
+	std::vector<Tape> tapes = this->controller.listTapesFilmedAtLessThanCount(filmedAt, integerAccessCount);
+	for (auto it : tapes)
+		std::cout << it;
 	return true;
 }
 
@@ -120,11 +121,7 @@ bool UI::nextInPlaylist(char command[])
 {
 	
 	Tape currentTape = this->controller.nextInPlaylist();
-	//std::cout << currentTape.getTitle() << currentTape.getFilmedAt() << currentTape.getCreationDate() << " " << currentTape.getAccessCount() << currentTape.getFootagePreview() << "\n";
-	char tapeToPrint[1001];
-	tapeToPrint[0] = 0;
-	currentTape.toString(tapeToPrint);
-	std::cout << tapeToPrint;
+	std::cout << currentTape;
 	return true;
 }
 
@@ -138,10 +135,10 @@ bool UI::saveToPlaylist(char command[])
 
 bool UI::printPlaylist(char command[])
 {
-	char playlist[1001];
-	playlist[0] = 0;
-	this->controller.listPlaylist(playlist);
-	std::cout << playlist;
+	std::vector<Tape> playlist;
+	playlist = this->controller.listPlaylist();
+	for (auto it : playlist)
+		std::cout << it;
 	return true;
 }
 
@@ -180,24 +177,47 @@ void UI::run()
 				strcpy(command, splitCommand);
 
 				if (strcmp(command, "add") == 0) {
-					validCommand = this->addTape(command);
+					try { 
+						validCommand = this->addTape(command); 
+					}
+					catch (RepositoryException& re) {
+						std::cout << re.getMessage() << std::endl;
+					}
+					catch (UserInputException& ue) {
+						std::cout << ue.getMessage() << std::endl;
+					}
+					
 				}
 				else if (strcmp(command, "delete") == 0) {
-					validCommand = this->removeTape(command);
+					try {
+						validCommand = this->removeTape(command);
+					}
+					catch (RepositoryException& re) {
+						std::cout << re.getMessage() << std::endl;
+					}
+					catch (UserInputException& ue) {
+						std::cout << ue.getMessage() << std::endl;
+					}
 				}
 				else if (strcmp(command, "update") == 0)
 				{
-					validCommand = this->updateTape(command);
+					try {
+						validCommand = this->updateTape(command);
+
+					}
+					catch (RepositoryException& re) {
+						std::cout << re.getMessage() << std::endl;
+					}
+					catch (UserInputException& ue) {
+						std::cout << ue.getMessage() << std::endl;
+					}
 				}
 				else if (strcmp(command, "list") == 0) {
 					validCommand = this->list(command);
+					continue;
 				}
 				else if (strcmp(command, "exit") == 0) {
 					return;
-				}
-				if (!validCommand) {
-					//std::cout << "Invalid command\n";
-					
 				}
 			case 'B':
 				
@@ -217,7 +237,12 @@ void UI::run()
 				}
 				else if (strcmp(command, "list") == 0)
 				{
-					validCommand = this->listWhenInUserMode(command);
+					try {
+						validCommand = this->listWhenInUserMode(command);
+					}
+					catch (UserInputException& ue) {
+						std::cout << ue.getMessage() << std::endl;
+					}
 				}
 				else if (strcmp(command, "save") == 0)
 				{
@@ -226,9 +251,6 @@ void UI::run()
 				else if (strcmp(command, "exit") == 0)
 				{
 					return;
-				}
-				if (!validCommand) {
-					//std::cout << "Invalid command\n";
 				}
 			case 'X':
 				if (strcmp(command, "exit") == 0)
