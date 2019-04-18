@@ -1,11 +1,11 @@
 #include "UI.h"
 #include "Tests.h"
-
+#include <cstring>
 int main() {
 	runTests();
-	Repository repository{};
+	/*FileRepository repository{};
 	Controller controller{repository};
 	UI ui{ controller };
-	ui.run();
+	ui.run();*/
 	return 0;
 }

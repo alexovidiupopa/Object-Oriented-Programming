@@ -1,28 +1,5 @@
-﻿  Source.cpp
-  Tape.cpp
-d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\tape.cpp(9): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
-d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\tape.cpp(10): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
-d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\tape.cpp(11): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
-d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\tape.cpp(12): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
-d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\tape.cpp(42): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
-d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\tape.cpp(47): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
-d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\tape.cpp(52): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
-d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\tape.cpp(57): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
-d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\tape.cpp(67): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
-d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\tape.cpp(68): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
-d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\tape.cpp(69): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
-d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\tape.cpp(70): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
-  Generating Code...
+﻿  Tests.cpp
+d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\tests.cpp(42): warning C4101: 're': unreferenced local variable
+d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\tests.cpp(91): warning C4101: 're': unreferenced local variable
+d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\tests.cpp(133): warning C4101: 're': unreferenced local variable
   Lab5-6.vcxproj -> D:\Facultate\Semestrul 2\Object-Oriented-Programming\Object-Oriented-Programming\Lab5-6\Debug\Lab5-6.exe

@@ -1,31 +1,35 @@
 #pragma once
-#include "Repository.h"
+#include "FileRepository.h"
 
 class Controller {
 
 private:
 
-	Repository repository;
+	FileRepository repository;
 	int indexForPlaylistIterating;
 public:
 
-	Controller(Repository& repository) : repository{ repository } {}
+	Controller(FileRepository& repository) : repository{ repository } {}
 
-	bool addTape(char givenTitle[], char givenFilmedAt[], char givenCreationDate[], char givenFootagePreview[], int givenAccessCount);
+	void addTape(std::string givenTitle, std::string givenFilmedAt, std::string givenCreationDate, std::string givenFootagePreview, int givenAccessCount);
 
-	bool removeTape(char givenTitle[]);
+	void removeTape(std::string givenTitle);
 
-	bool updateTape(char givenTitle[], char givenFilmedAt[], char givenCreationDate[], char givenFootagePreview[], int givenAccessCount);
+	void updateTape(std::string givenTitle, std::string givenFilmedAt, std::string givenCreationDate, std::string givenFootagePreview, int givenAccessCount);
 
 	std::vector<Tape> listTapes();
 
-	std::vector<Tape> listTapesFilmedAtLessThanCount(char givenFilmedAt[], int givenAccessCount);
+	std::vector<Tape> listTapesFilmedAtLessThanCount(std::string givenFilmedAt, int givenAccessCount);
 
 	std::vector<Tape> listPlaylist();
 
-	bool saveToPlaylist(char givenTitle[]);
+	void saveToPlaylist(std::string givenTitle);
 
 	void initializeIndex();
 
 	Tape nextInPlaylist();
+
+	void setRepository(std::string path);
+
+	void saveRepository();
 };

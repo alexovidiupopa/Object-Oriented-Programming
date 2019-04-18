@@ -7,22 +7,22 @@ class Repository {
 private:
 	std::vector<Tape> tapes;
 	std::vector<Tape> playlist;
-	int searchForTape(char title[]);
+	int searchForTape(std::string title);
 public:
 
 	Repository() {}
 	
-	bool addTapeToRepository(Tape tapeToAdd);
+	void addTapeToRepository(Tape tapeToAdd);
 
-	bool removeTapeFromRepo(char title[]);
+	void removeTapeFromRepo(std::string title);
 
-	bool updateTapeInRepo(Tape tapeToUpdate);
+	void updateTapeInRepo(Tape tapeToUpdate);
 
 	std::vector<Tape> getAllTapes();
 
 	std::vector<Tape> getPlaylist();
 
-	bool saveTape(char givenTitle[]);
+	void saveTape(std::string givenTitle);
 
 };
 

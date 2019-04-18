@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?><DEFECTS><DEFECT>
+    <SFA>
+      <FILEPATH>d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6</FILEPATH>
+      <FILENAME>controller.h</FILENAME>
+      <LINE>12</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Controller::indexForPlaylistIterating' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Controller::{ctor}</FUNCTION>
+    <DECORATED>??0Controller@@QAE@AAVRepository@@@Z</DECORATED>
+    <FUNCLINE>12</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6</FILEPATH>
+      <FILENAME>ui.h</FILENAME>
+      <LINE>26</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'UI::applicationMode' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>UI::{ctor}</FUNCTION>
+    <DECORATED>??0UI@@QAE@ABVController@@@Z</DECORATED>
+    <FUNCLINE>26</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT></DEFECTS>

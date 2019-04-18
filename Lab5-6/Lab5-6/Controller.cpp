@@ -1,57 +1,50 @@
 #include "Controller.h"
 #include <iostream>
-
-bool Controller::addTape(char givenTitle[], char givenFilmedAt[], char givenCreationDate[], char givenFootagePreview[], int givenAccessCount)
+#include <algorithm>
+void Controller::addTape(std::string givenTitle, std::string givenFilmedAt, std::string givenCreationDate, std::string givenFootagePreview, int givenAccessCount)
 {
 	Tape TapeToAdd(givenTitle, givenFilmedAt, givenCreationDate, givenFootagePreview, givenAccessCount);
-	return this->repository.addTapeToRepository(TapeToAdd);
+	this->repository.addTapeToRepository(TapeToAdd);
+	this->saveRepository();
 }
 
-bool Controller::removeTape(char givenTitle[])
+void Controller::removeTape(std::string givenTitle)
 {
-	return this->repository.removeTapeFromRepo(givenTitle);
+	this->repository.removeTapeFromRepo(givenTitle);
+	this->saveRepository();
 }
 
-bool Controller::updateTape(char givenTitle[], char givenFilmedAt[], char givenCreationDate[], char givenFootagePreview[], int givenAccessCount)
+void Controller::updateTape(std::string givenTitle, std::string givenFilmedAt, std::string givenCreationDate, std::string givenFootagePreview, int givenAccessCount)
 {
 	Tape TapeToAdd(givenTitle, givenFilmedAt, givenCreationDate, givenFootagePreview, givenAccessCount);
-	return this->repository.updateTapeInRepo(TapeToAdd);
+	this->repository.updateTapeInRepo(TapeToAdd);
+	this->saveRepository();
 }
 
 std::vector<Tape> Controller::listTapes()
 {
 	return this->repository.getAllTapes();
-	/*for (auto it : this->repository.getAllTapes())
-	{
-		it.toString(tapesToPrint);
-	}*/
-	
 }
 
-std::vector<Tape> Controller::listTapesFilmedAtLessThanCount(char givenFilmedAt[], int givenAccessCount)
+std::vector<Tape> Controller::listTapesFilmedAtLessThanCount(std::string givenFilmedAt, int givenAccessCount)
 {
+	std::vector<Tape> tapes = this->repository.getAllTapes();
 	std::vector<Tape> tapesToPrint;
-	for (auto it: this->repository.getAllTapes()) {
-		if (strcmp(it.getFilmedAt(), givenFilmedAt) == 0 && it.getAccessCount() < givenAccessCount)
-		{
-			tapesToPrint.push_back(it);
-		}
-	}
+	tapesToPrint.resize(tapes.size());
+	auto it = std::copy_if(tapes.begin(), tapes.end(), tapesToPrint.begin(), [givenFilmedAt,givenAccessCount](Tape tape) 
+	{return (tape.getFilmedAt() == givenFilmedAt) && (tape.getAccessCount() < givenAccessCount);});
+	tapesToPrint.resize(std::distance(tapesToPrint.begin(), it));
 	return tapesToPrint;
 }
 
 std::vector<Tape> Controller::listPlaylist()
 {
-	std::vector<Tape> playlistToPrint;
-	for (auto it : this->repository.getPlaylist()) {
-		playlistToPrint.push_back(it);
-	}
-	return playlistToPrint;
+	return this->repository.getPlaylist();
 }
 
-bool Controller::saveToPlaylist(char givenTitle[])
+void Controller::saveToPlaylist(std::string givenTitle)
 {
-	return this->repository.saveTape(givenTitle);
+	this->repository.saveTape(givenTitle);
 }
 
 void Controller::initializeIndex()
@@ -67,5 +60,18 @@ Tape Controller::nextInPlaylist()
 	this->indexForPlaylistIterating++;
 	return tapesRepository[this->indexForPlaylistIterating -1];
 }
+
+void Controller::setRepository(std::string path)
+{
+	this->repository.setPath(path);
+	this->repository.loadRepository();
+}
+
+void Controller::saveRepository()
+{
+	this->repository.saveRepository();
+}
+
+
 
 

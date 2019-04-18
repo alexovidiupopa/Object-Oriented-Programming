@@ -6,15 +6,20 @@ private:
 
 	Controller controller;
 	char applicationMode;
-	bool addTape(char command[]);
-	bool list(char command[]);
-	bool removeTape(char command[]);
-	bool updateTape(char command[]);
+	
+	
+	void fileLocation(std::string command);
+	
+	void addTape(char command[]);
+	void list(char command[]);
+	void removeTape(char command[]);
+	void updateTape(char command[]);
 
-	bool listWhenInUserMode(char command[]);
-	bool nextInPlaylist(char command[]);
-	bool saveToPlaylist(char command[]);
-	bool printPlaylist(char command[]);
+	void listWhenInUserMode(char command[]);
+	void nextInPlaylist(char command[]);
+	void saveToPlaylist(char command[]);
+	void printPlaylist(char command[]);
+
 
 	void initializeIndexForPlaylistIterating();
 public:

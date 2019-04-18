@@ -1,40 +1,45 @@
 #pragma once
-#include <cstring>
 #include <iostream>
+#include <vector>
 class Tape {
 	
 private:
 
-	char title[21], filmedAt[41], creationDate[41], footagePreview[21];
+	std::string title, filmedAt, creationDate, footagePreview;
 	int accessCount;
 
 public: 
 	Tape();
+	~Tape();
+	Tape( std::string& title, std::string& filmedAt,  std::string& creationDate,  std::string &footagePreview, int accessCount);
 
-	Tape(char title[], char filmedAt[], char creationDate[], char footagePreview[], int accessCount);
+	std::string getTitle();
 
-	char* getTitle();
+	std::string getFilmedAt();
 
-	const char* getFilmedAt();
+	std::string getCreationDate();
 
-	const char* getCreationDate();
-
-	const char* getFootagePreview();
+	std::string getFootagePreview();
 
 	int getAccessCount();
 
-	void setTitle(char newTitle[]);
+	void setTitle(std::string newTitle);
 
-	void setFilmedAt(char filmedAt[]);
+	void setFilmedAt(std::string filmedAt);
 
-	void setCreationDate(char creationDate[]);
+	void setCreationDate(std::string creationDate);
 
-	void setFootagePreview(char footagePreview[]);
+	void setFootagePreview(std::string footagePreview);
 
 	void setAccessCount(int newCount);
 
 	Tape& operator=(const Tape& tapeToCheck);
 	bool operator==(const Tape& tapeToCheck);
-	friend std::ostream& operator<<(std::ostream &os, const Tape& tapeToPrint);
-	~Tape();
+	//std::vector<std::string> tokenizeInput(std::string inputString, char delimiter);
+
+	friend std::ostream& operator<<(std::ostream &outputStream, const Tape& tapeToPrint);
+	
+	friend std::istream& operator>>(std::istream &inputStream, Tape& tapeToRead);
+	
+	
 };

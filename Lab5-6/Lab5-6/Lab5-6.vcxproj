@@ -120,6 +120,7 @@
   <ItemGroup>
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="DynamicVector.cpp" />
+    <ClCompile Include="FileRepository.cpp" />
     <ClCompile Include="Repository.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Tape.cpp" />
@@ -131,6 +132,7 @@
     <ClInclude Include="Controller.h" />
     <ClInclude Include="DynamicVector.h" />
     <ClInclude Include="Exceptions.h" />
+    <ClInclude Include="FileRepository.h" />
     <ClInclude Include="Repository.h" />
     <ClInclude Include="Tape.h" />
     <ClInclude Include="Tests.h" />
