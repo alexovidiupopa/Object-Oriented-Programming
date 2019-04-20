@@ -45,8 +45,8 @@ void UI::list(char command[])
 	if (command == NULL) {
 		
 		std::vector<Tape> tapes = this->controller.listTapes();
-		for (auto it : tapes)
-			std::cout << it;
+		for (auto tapeInRepository : tapes)
+			std::cout << tapeInRepository;
 		return;
 	}
 	throw UserInputException("Input error");
@@ -116,8 +116,8 @@ void UI::listWhenInUserMode(char command[])
 	if (integerAccessCount == 0)
 		throw UserInputException("Input error");
 	std::vector<Tape> tapes = this->controller.listTapesFilmedAtLessThanCount(filmedAt, integerAccessCount);
-	for (auto it : tapes)
-		std::cout << it;
+	for (auto tapeInRepository : tapes)
+		std::cout << tapeInRepository;
 }
 
 void UI::nextInPlaylist(char command[])
@@ -139,8 +139,8 @@ void UI::printPlaylist(char command[])
 {
 	std::vector<Tape> playlist;
 	playlist = this->controller.listPlaylist();
-	for (auto it : playlist)
-		std::cout << it;
+	for (auto tapeInRepository : playlist)
+		std::cout << tapeInRepository;
 }
 
 void UI::initializeIndexForPlaylistIterating()
@@ -184,11 +184,11 @@ void UI::run()
 					try { 
 						this->addTape(command); 
 					}
-					catch (RepositoryException& re) {
-						std::cout << re.getMessage() << std::endl;
+					catch (RepositoryException& repositoryError) {
+						std::cout << repositoryError.getMessage() << std::endl;
 					}
-					catch (UserInputException& ue) {
-						std::cout << ue.getMessage() << std::endl;
+					catch (UserInputException& UserInputError) {
+						std::cout << UserInputError.getMessage() << std::endl;
 					}
 					
 				}
@@ -196,11 +196,11 @@ void UI::run()
 					try {
 						this->removeTape(command);
 					}
-					catch (RepositoryException& re) {
-						std::cout << re.getMessage() << std::endl;
+					catch (RepositoryException& repositoryError) {
+						std::cout << repositoryError.getMessage() << std::endl;
 					}
-					catch (UserInputException& ue) {
-						std::cout << ue.getMessage() << std::endl;
+					catch (UserInputException& UserInputError) {
+						std::cout << UserInputError.getMessage() << std::endl;
 					}
 				}
 				else if (strcmp(command, "update") == 0)
@@ -209,11 +209,11 @@ void UI::run()
 						this->updateTape(command);
 
 					}
-					catch (RepositoryException& re) {
-						std::cout << re.getMessage() << std::endl;
+					catch (RepositoryException& repositoryError) {
+						std::cout << repositoryError.getMessage() << std::endl;
 					}
-					catch (UserInputException& ue) {
-						std::cout << ue.getMessage() << std::endl;
+					catch (UserInputException& UserInputError) {
+						std::cout << UserInputError.getMessage() << std::endl;
 					}
 				}
 				else if (strcmp(command, "list") == 0) {
@@ -244,8 +244,8 @@ void UI::run()
 					try {
 						this->listWhenInUserMode(command);
 					}
-					catch (UserInputException& ue) {
-						std::cout << ue.getMessage() << std::endl;
+					catch (UserInputException& UserInputError) {
+						std::cout << UserInputError.getMessage() << std::endl;
 					}
 				}
 				else if (strcmp(command, "save") == 0)

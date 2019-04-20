@@ -31,9 +31,9 @@ std::vector<Tape> Controller::listTapesFilmedAtLessThanCount(std::string givenFi
 	std::vector<Tape> tapes = this->repository.getAllTapes();
 	std::vector<Tape> tapesToPrint;
 	tapesToPrint.resize(tapes.size());
-	auto it = std::copy_if(tapes.begin(), tapes.end(), tapesToPrint.begin(), [givenFilmedAt,givenAccessCount](Tape tape) 
+	auto lambdaFunctionForFilteringTheTapes = std::copy_if(tapes.begin(), tapes.end(), tapesToPrint.begin(), [givenFilmedAt,givenAccessCount](Tape tape) 
 	{return (tape.getFilmedAt() == givenFilmedAt) && (tape.getAccessCount() < givenAccessCount);});
-	tapesToPrint.resize(std::distance(tapesToPrint.begin(), it));
+	tapesToPrint.resize(std::distance(tapesToPrint.begin(), lambdaFunctionForFilteringTheTapes));
 	return tapesToPrint;
 }
 

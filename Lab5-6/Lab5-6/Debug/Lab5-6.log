@@ -1,5 +1,2 @@
-﻿  Tests.cpp
-d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\tests.cpp(42): warning C4101: 're': unreferenced local variable
-d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\tests.cpp(91): warning C4101: 're': unreferenced local variable
-d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\tests.cpp(133): warning C4101: 're': unreferenced local variable
-  Lab5-6.vcxproj -> D:\Facultate\Semestrul 2\Object-Oriented-Programming\Object-Oriented-Programming\Lab5-6\Debug\Lab5-6.exe
+﻿  Controller.cpp
+  Lab5-6.vcxproj -> D:\OOP\Object-Oriented-Programming\Lab5-6\Debug\Lab5-6.exe

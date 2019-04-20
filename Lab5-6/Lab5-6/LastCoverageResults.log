@@ -1,21 +1,21 @@
-[2019-04-18 11:12:09] [info] Start Program:
-Path:"D:\Facultate\Semestrul 2\Object-Oriented-Programming\Object-Oriented-Programming\Lab5-6\Debug\Lab5-6.exe"
+[2019-04-19 10:07:01] [info] Start Program:
+Path:"D:\OOP\Object-Oriented-Programming\Lab5-6\Debug\Lab5-6.exe"
 Arguments:
-Working directory: "D:\Facultate\Semestrul 2\Object-Oriented-Programming\Object-Oriented-Programming\Lab5-6\Lab5-6\"
-Modules: Selected: D:\Facultate\Semestrul 2\Object-Oriented-Programming\Object-Oriented-Programming\Lab5-6\Debug\Lab5-6.exe Excluded: 
-Sources: Selected: D:\Facultate\Semestrul 2\Object-Oriented-Programming\Object-Oriented-Programming\Lab5-6\Lab5-6 Excluded: 
+Working directory: "D:\OOP\Object-Oriented-Programming\Lab5-6\Lab5-6\"
+Modules: Selected: D:\OOP\Object-Oriented-Programming\Lab5-6\Debug\Lab5-6.exe Excluded: 
+Sources: Selected: D:\OOP\Object-Oriented-Programming\Lab5-6\Lab5-6 Excluded: 
 Log Level: Normal
 Cover Children: 0
 Aggregate by file: 1
 Continue after C++ exception: 0
 Optimized build support: 0
-Export: Binary C:\Users\Alex\AppData\Local\Temp\05wdv4bp.22d 
+Export: Binary C:\Users\Alex\AppData\Local\Temp\5fgvo50j.bpb 
 Input coverage: 
 Unified diff: 
 Excluded line regular expressions: 
 Substitute pdb source paths: 
 
-[2019-04-18 11:12:09] [info] Module: D:\Facultate\Semestrul 2\Object-Oriented-Programming\Object-Oriented-Programming\Lab5-6\Debug\Lab5-6.exe is selected because it matches selected pattern: D:\Facultate\Semestrul 2\Object-Oriented-Programming\Object-Oriented-Programming\Lab5-6\Debug\Lab5-6.exe
-[2019-04-18 11:12:09] [info] ----------------------------------------------------
-[2019-04-18 11:12:09] [info] Coverage binary generated in file: C:\Users\Alex\AppData\Local\Temp\05wdv4bp.22d
-[2019-04-18 11:12:09] [info] ----------------------------------------------------
+[2019-04-19 10:07:01] [info] Module: D:\OOP\Object-Oriented-Programming\Lab5-6\Debug\Lab5-6.exe is selected because it matches selected pattern: D:\OOP\Object-Oriented-Programming\Lab5-6\Debug\Lab5-6.exe
+[2019-04-19 10:07:01] [info] ----------------------------------------------------
+[2019-04-19 10:07:01] [info] Coverage binary generated in file: C:\Users\Alex\AppData\Local\Temp\5fgvo50j.bpb
+[2019-04-19 10:07:01] [info] ----------------------------------------------------

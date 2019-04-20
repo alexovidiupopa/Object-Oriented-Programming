@@ -5,8 +5,6 @@ void FileRepository::loadRepository()
 {
 	std::ifstream file(this->path);
 	Tape t{};
-	if (!file.is_open())
-		return;
 	while (file >> t) {
 		addTapeToRepository(t);
 	}
