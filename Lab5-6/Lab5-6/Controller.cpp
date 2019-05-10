@@ -4,12 +4,14 @@
 void Controller::addTape(std::string givenTitle, std::string givenFilmedAt, std::string givenCreationDate, std::string givenFootagePreview, int givenAccessCount)
 {
 	Tape TapeToAdd(givenTitle, givenFilmedAt, givenCreationDate, givenFootagePreview, givenAccessCount);
+	this->validator.validateData(givenTitle, givenFilmedAt, givenCreationDate, givenFootagePreview, givenAccessCount);
 	this->repository.addTapeToRepository(TapeToAdd);
 	this->saveRepository();
 }
 
 void Controller::removeTape(std::string givenTitle)
 {
+	this->validator.validateData(givenTitle, "randomFilmedAt", "randomDate", "randomPreview", 10);
 	this->repository.removeTapeFromRepo(givenTitle);
 	this->saveRepository();
 }
@@ -17,6 +19,7 @@ void Controller::removeTape(std::string givenTitle)
 void Controller::updateTape(std::string givenTitle, std::string givenFilmedAt, std::string givenCreationDate, std::string givenFootagePreview, int givenAccessCount)
 {
 	Tape TapeToAdd(givenTitle, givenFilmedAt, givenCreationDate, givenFootagePreview, givenAccessCount);
+	this->validator.validateData(givenTitle, givenFilmedAt, givenCreationDate, givenFootagePreview, givenAccessCount);
 	this->repository.updateTapeInRepo(TapeToAdd);
 	this->saveRepository();
 }
@@ -39,12 +42,17 @@ std::vector<Tape> Controller::listTapesFilmedAtLessThanCount(std::string givenFi
 
 std::vector<Tape> Controller::listPlaylist()
 {
-	return this->repository.getPlaylist();
+	return this->playlist->printPlaylistOnScreen();
 }
 
 void Controller::saveToPlaylist(std::string givenTitle)
 {
-	this->repository.saveTape(givenTitle);
+	for (auto tape : this->repository.getAllTapes()) {
+		if (tape.getTitle() == givenTitle) {
+			this->playlist->saveTape(tape);
+			this->playlist->writeToFile();
+		}
+	}
 }
 
 void Controller::initializeIndex()
@@ -61,15 +69,15 @@ Tape Controller::nextInPlaylist()
 	return tapesRepository[this->indexForPlaylistIterating -1];
 }
 
-void Controller::setRepository(std::string path)
-{
-	this->repository.setPath(path);
-	this->repository.loadRepository();
-}
 
 void Controller::saveRepository()
 {
 	this->repository.saveRepository();
+}
+
+void Controller::openPlaylist()
+{
+	this->playlist->displayPlaylist();
 }
 
 

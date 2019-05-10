@@ -1,15 +1,20 @@
 #pragma once
 #include "FileRepository.h"
-
+#include "Validator.h"
+#include "FilePlaylist.h"
+#include "CSVPlaylist.h"
+#include "HTMLPlaylist.h"
 class Controller {
 
 private:
 
 	FileRepository repository;
+	FilePlaylist* playlist;
+	Validator validator;
 	int indexForPlaylistIterating;
 public:
 
-	Controller(FileRepository& repository) : repository{ repository } {}
+	Controller(FileRepository& repository, FilePlaylist* playlist, Validator validator) : repository{ repository }, playlist{ playlist }, validator{ validator } {}
 
 	void addTape(std::string givenTitle, std::string givenFilmedAt, std::string givenCreationDate, std::string givenFootagePreview, int givenAccessCount);
 
@@ -29,7 +34,7 @@ public:
 
 	Tape nextInPlaylist();
 
-	void setRepository(std::string path);
-
 	void saveRepository();
+
+	void openPlaylist();
 };

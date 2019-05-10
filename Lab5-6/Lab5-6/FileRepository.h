@@ -7,7 +7,7 @@ private:
 	std::string path="";
 	std::vector<Tape> tapes;
 public:
-	FileRepository() {};
+	FileRepository(std::string path) ;
 	
 	void loadRepository();
 	void saveRepository();

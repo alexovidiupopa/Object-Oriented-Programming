@@ -1,14 +1,12 @@
 #pragma once
 #include "Controller.h"
+#include <iostream>
 class UI {
 
 private:
 
 	Controller controller;
 	char applicationMode;
-	
-	
-	void fileLocation(std::string command);
 	
 	void addTape(char command[]);
 	void list(char command[]);
@@ -20,7 +18,7 @@ private:
 	void saveToPlaylist(char command[]);
 	void printPlaylist(char command[]);
 
-
+	void openPlaylistWithCorrectApp();
 	void initializeIndexForPlaylistIterating();
 public:
 	UI(const Controller& controller) : controller(controller) {};

@@ -41,17 +41,4 @@ std::vector<Tape>Repository::getAllTapes()
 	return this->tapes;
 }
 
-std::vector<Tape> Repository::getPlaylist()
-{
-	return this->playlist;
-}
 
-void Repository::saveTape(std::string givenTitle)
-{
-	int index = searchForTape(givenTitle);
-	if (index == -1)
-		throw RepositoryException("Tape doesn't exist");
-	std::vector<Tape> tapes = this->tapes;
-	this->playlist.push_back(tapes[index]);
-	
-}

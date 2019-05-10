@@ -1,3 +1,4 @@
+#pragma once
 #include <exception>
 #include <string>
 class RepositoryException : public std::exception{
@@ -18,5 +19,13 @@ class UserInputException : public std::exception {
 	std::string message;
 public:
 	UserInputException(std::string message) :message(message) {};
+	std::string getMessage() { return this->message; };
+};
+
+
+class FileException : public std::exception {
+	std::string message;
+public:
+	FileException(std::string message) :message(message) {};
 	std::string getMessage() { return this->message; };
 };

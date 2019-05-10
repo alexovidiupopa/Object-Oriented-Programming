@@ -1,16 +1,17 @@
 #pragma once
-
+#include <string>
+#include "Exceptions.h"
 class Validator {
 
 private: 
 
-	/*bool validateTitle(char givenTitle[]);
-	bool validateFilmedAt(char givenFilmedAt[]);
-	bool validateCreationDate(char givenCreationDate[]);
-	bool validateFootagePreview(char givenFootagePreview[]);
-	bool validateAccessCount(int givenAccessCount);*/
+	void validateTitle(std::string givenTitle);
+	void validateFilmedAt(std::string givenFilmedAt);
+	void validateCreationDate(std::string givenCreationDate);
+	void validateFootagePreview(std::string givenFootagePreview);
+	void validateAccessCount(int givenAccessCount);
 
 public:
 
-	//bool validateData(char givenTitle[], char givenFilmedAt[], char givenCreationDate[], char givenFootagePreview[], int givenAccessCount);
+	void validateData(std::string  givenTitle, std::string  givenFilmedAt, std::string  givenCreationDate, std::string  givenFootagePreview, int givenAccessCount);
 };

@@ -1,25 +1,31 @@
 #include "FileRepository.h"
 #include <fstream>
 
+FileRepository::FileRepository(std::string path)
+{
+	this->path = path;
+	loadRepository();
+}
+
 void FileRepository::loadRepository()
 {
 	std::ifstream file(this->path);
-	Tape t{};
-	while (file >> t) {
-		addTapeToRepository(t);
+	Tape tape{};
+	while (file >> tape) {
+		addTapeToRepository(tape);
 	}
 	file.close();
 }
 
 void FileRepository::saveRepository()
 {
-	std::ofstream file(this->path);
-	if (!file.is_open())
+	std::ofstream outFile(this->path);
+	if (!outFile.is_open())
 		return;
-	for (auto it : this->getAllTapes()) {
-		file << it;
+	for (auto tape : this->getAllTapes()) {
+		outFile << tape;
 	}
-	file.close();
+	outFile.close();
 }
 
 FileRepository::~FileRepository()

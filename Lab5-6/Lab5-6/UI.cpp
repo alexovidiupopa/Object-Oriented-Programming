@@ -1,11 +1,6 @@
 #include "UI.h"
-#include <iostream>
 #include <stdlib.h>
-void UI::fileLocation(std::string command)
-{
-	std::string filePath=command.substr(13,command.size()-11);
-	this->controller.setRepository(filePath);
-}
+
 void UI::addTape(char command[])
 {
 	std::string title, filmedAt, creationDate, footagePreview, accessCount;
@@ -143,6 +138,11 @@ void UI::printPlaylist(char command[])
 		std::cout << tapeInRepository;
 }
 
+void UI::openPlaylistWithCorrectApp()
+{
+	this->controller.openPlaylist();
+}
+
 void UI::initializeIndexForPlaylistIterating()
 {
 	this->controller.initializeIndex();
@@ -152,13 +152,10 @@ void UI::run()
 {
 	bool readCommand = true;
 	bool validCommand = true;
-	std::string fileLocation;
 	char command[201];
 	char *splitCommand;
 	this->applicationMode = 'X';
 	initializeIndexForPlaylistIterating();
-	getline(std::cin, fileLocation);
-	this->fileLocation(fileLocation);
 	while (readCommand)
 	{
 		std::cin.getline(command, 201);
@@ -190,6 +187,9 @@ void UI::run()
 					catch (UserInputException& UserInputError) {
 						std::cout << UserInputError.getMessage() << std::endl;
 					}
+					catch (ValidatorException& validationError) {
+						std::cout << validationError.getMessage() << std::endl;
+					}
 					
 				}
 				else if (strcmp(command, "delete") == 0) {
@@ -201,6 +201,9 @@ void UI::run()
 					}
 					catch (UserInputException& UserInputError) {
 						std::cout << UserInputError.getMessage() << std::endl;
+					}
+					catch (ValidatorException& validationError) {
+						std::cout << validationError.getMessage() << std::endl;
 					}
 				}
 				else if (strcmp(command, "update") == 0)
@@ -214,6 +217,9 @@ void UI::run()
 					}
 					catch (UserInputException& UserInputError) {
 						std::cout << UserInputError.getMessage() << std::endl;
+					}
+					catch (ValidatorException& validationError) {
+						std::cout << validationError.getMessage() << std::endl;
 					}
 				}
 				else if (strcmp(command, "list") == 0) {
@@ -248,9 +254,17 @@ void UI::run()
 						std::cout << UserInputError.getMessage() << std::endl;
 					}
 				}
+				else if (strcmp(command, "open") == 0) {
+					this->openPlaylistWithCorrectApp();
+				}
 				else if (strcmp(command, "save") == 0)
 				{
-					this->saveToPlaylist(command);
+					try {
+						this->saveToPlaylist(command);
+					}
+					catch (FileException &fileError) {
+						std::cout << fileError.getMessage() << std::endl;
+					}
 				}
 				else if (strcmp(command, "exit") == 0)
 				{

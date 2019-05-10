@@ -119,8 +119,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Controller.cpp" />
-    <ClCompile Include="DynamicVector.cpp" />
+    <ClCompile Include="CSVPlaylist.cpp" />
+    <ClCompile Include="FilePlaylist.cpp" />
     <ClCompile Include="FileRepository.cpp" />
+    <ClCompile Include="HTMLPlaylist.cpp" />
+    <ClCompile Include="Playlist.cpp" />
     <ClCompile Include="Repository.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Tape.cpp" />
@@ -130,9 +133,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controller.h" />
+    <ClInclude Include="CSVPlaylist.h" />
     <ClInclude Include="DynamicVector.h" />
     <ClInclude Include="Exceptions.h" />
+    <ClInclude Include="FilePlaylist.h" />
     <ClInclude Include="FileRepository.h" />
+    <ClInclude Include="HTMLPlaylist.h" />
+    <ClInclude Include="Playlist.h" />
     <ClInclude Include="Repository.h" />
     <ClInclude Include="Tape.h" />
     <ClInclude Include="Tests.h" />

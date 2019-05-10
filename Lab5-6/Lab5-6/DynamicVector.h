@@ -1,4 +1,8 @@
 #pragma once
+
+/*THIS CLASS IS NOT USED FOR ANYTHING ANYMORE.*/
+
+
 template <class GenericElement>
 class DynamicVector{
 private:

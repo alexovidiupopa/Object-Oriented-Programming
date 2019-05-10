@@ -1,4 +1,4 @@
-[2019-04-19 10:07:01] [info] Start Program:
+[2019-05-01 15:18:33] [info] Start Program:
 Path:"D:\OOP\Object-Oriented-Programming\Lab5-6\Debug\Lab5-6.exe"
 Arguments:
 Working directory: "D:\OOP\Object-Oriented-Programming\Lab5-6\Lab5-6\"
@@ -9,13 +9,13 @@ Cover Children: 0
 Aggregate by file: 1
 Continue after C++ exception: 0
 Optimized build support: 0
-Export: Binary C:\Users\Alex\AppData\Local\Temp\5fgvo50j.bpb 
+Export: Binary C:\Users\Alex\AppData\Local\Temp\hdnkokk3.qkm 
 Input coverage: 
 Unified diff: 
 Excluded line regular expressions: 
 Substitute pdb source paths: 
 
-[2019-04-19 10:07:01] [info] Module: D:\OOP\Object-Oriented-Programming\Lab5-6\Debug\Lab5-6.exe is selected because it matches selected pattern: D:\OOP\Object-Oriented-Programming\Lab5-6\Debug\Lab5-6.exe
-[2019-04-19 10:07:01] [info] ----------------------------------------------------
-[2019-04-19 10:07:01] [info] Coverage binary generated in file: C:\Users\Alex\AppData\Local\Temp\5fgvo50j.bpb
-[2019-04-19 10:07:01] [info] ----------------------------------------------------
+[2019-05-01 15:18:33] [info] Module: D:\OOP\Object-Oriented-Programming\Lab5-6\Debug\Lab5-6.exe is selected because it matches selected pattern: D:\OOP\Object-Oriented-Programming\Lab5-6\Debug\Lab5-6.exe
+[2019-05-01 15:18:33] [info] ----------------------------------------------------
+[2019-05-01 15:18:33] [info] Coverage binary generated in file: C:\Users\Alex\AppData\Local\Temp\hdnkokk3.qkm
+[2019-05-01 15:18:33] [info] ----------------------------------------------------

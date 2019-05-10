@@ -6,7 +6,6 @@ class Repository {
 
 private:
 	std::vector<Tape> tapes;
-	std::vector<Tape> playlist;
 	int searchForTape(std::string title);
 public:
 
@@ -19,10 +18,6 @@ public:
 	void updateTapeInRepo(Tape tapeToUpdate);
 
 	std::vector<Tape> getAllTapes();
-
-	std::vector<Tape> getPlaylist();
-
-	void saveTape(std::string givenTitle);
 
 };
 
