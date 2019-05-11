@@ -1,2 +1,10 @@
-﻿  Controller.cpp
-  Lab5-6.vcxproj -> D:\OOP\Object-Oriented-Programming\Lab5-6\Debug\Lab5-6.exe
+﻿  CSVPlaylist.cpp
+  HTMLPlaylist.cpp
+  Testing.cpp
+d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\testing.cpp(47): warning C4101: 'exception': unreferenced local variable
+d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\testing.cpp(63): warning C4101: 're': unreferenced local variable
+d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\testing.cpp(130): warning C4101: 're': unreferenced local variable
+d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\testing.cpp(141): warning C4101: 're': unreferenced local variable
+d:\facultate\semestrul 2\object-oriented-programming\object-oriented-programming\lab5-6\lab5-6\testing.cpp(186): warning C4101: 're': unreferenced local variable
+  Generating Code...
+  Lab5-6.vcxproj -> D:\Facultate\Semestrul 2\Object-Oriented-Programming\Object-Oriented-Programming\Lab5-6\Debug\Lab5-6.exe

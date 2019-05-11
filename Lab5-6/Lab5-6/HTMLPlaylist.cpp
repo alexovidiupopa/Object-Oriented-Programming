@@ -37,8 +37,8 @@ void HTMLPlaylist::writeToFile()
 
 void HTMLPlaylist::displayPlaylist() const
 {
-	//std::string aux = "\"" + this->file + "\"";
-	//ShellExecuteA(NULL, NULL, "C:\\Program Files\\Mozilla Firefox\\firefox.exe", aux.c_str(), NULL, SW_SHOWMAXIMIZED);
+	std::string path = "\"" + this->file + "\"";
+	ShellExecuteA(NULL, NULL, "C:\\Program Files\\Mozilla Firefox\\firefox.exe", path.c_str(), NULL, SW_SHOWMAXIMIZED);
 }
 
 std::vector<Tape> HTMLPlaylist::printPlaylistOnScreen() const

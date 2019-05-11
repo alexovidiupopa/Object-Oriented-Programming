@@ -1,9 +1,10 @@
 #include "UI.h"
-#include "Tests.h"
+#include "Testing.h"
 #include <string>
 
 int main() {
-	//runTests();
+	Testing tests{};
+	tests.testAll();
 	
 	std::string fileLocation, myListLocation;
 	

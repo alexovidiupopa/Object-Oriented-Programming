@@ -17,8 +17,8 @@ void CSVPlaylist::writeToFile()
 
 void CSVPlaylist::displayPlaylist() const 
 {
-	//std::string aux = "\"" + this->file + "\"";
-	//ShellExecuteA(NULL, NULL, "C:\\Program Files\\Microsoft Office\\Office16\\EXCEL.EXE", aux.c_str(), NULL, SW_SHOWMAXIMIZED);
+	std::string path = "\"" + this->file + "\"";
+	ShellExecuteA(NULL, NULL, "C:\\Program Files\\Microsoft Office\\Office16\\EXCEL.EXE", path.c_str(), NULL, SW_SHOWMAXIMIZED);
 }
 
 std::vector<Tape> CSVPlaylist::printPlaylistOnScreen() const

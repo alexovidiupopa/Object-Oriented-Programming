@@ -120,6 +120,9 @@
   <ItemGroup>
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="CSVPlaylist.cpp" />
+    <ClCompile Include="FakePlaylist.cpp" />
+    <ClCompile Include="FakeRepository.cpp" />
+    <ClCompile Include="FakeValidators.cpp" />
     <ClCompile Include="FilePlaylist.cpp" />
     <ClCompile Include="FileRepository.cpp" />
     <ClCompile Include="HTMLPlaylist.cpp" />
@@ -127,7 +130,7 @@
     <ClCompile Include="Repository.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Tape.cpp" />
-    <ClCompile Include="Tests.cpp" />
+    <ClCompile Include="Testing.cpp" />
     <ClCompile Include="UI.cpp" />
     <ClCompile Include="Validator.cpp" />
   </ItemGroup>
@@ -136,13 +139,16 @@
     <ClInclude Include="CSVPlaylist.h" />
     <ClInclude Include="DynamicVector.h" />
     <ClInclude Include="Exceptions.h" />
+    <ClInclude Include="FakePlaylist.h" />
+    <ClInclude Include="FakeRepository.h" />
+    <ClInclude Include="FakeValidators.h" />
     <ClInclude Include="FilePlaylist.h" />
     <ClInclude Include="FileRepository.h" />
     <ClInclude Include="HTMLPlaylist.h" />
     <ClInclude Include="Playlist.h" />
     <ClInclude Include="Repository.h" />
     <ClInclude Include="Tape.h" />
-    <ClInclude Include="Tests.h" />
+    <ClInclude Include="Testing.h" />
     <ClInclude Include="UI.h" />
     <ClInclude Include="Validator.h" />
   </ItemGroup>
