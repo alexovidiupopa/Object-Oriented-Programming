@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>UserWindowClass</class>
+ <widget class="QWidget" name="UserWindowClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>UserWindow</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QListWidget" name="listWidget"/>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="id"/>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="text"/>
+   </item>
+   <item>
+    <widget class="QPushButton" name="pushButton">
+     <property name="text">
+      <string>add</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QListWidget" name="secondList"/>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="answerId"/>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="answerText"/>
+   </item>
+   <item>
+    <widget class="QPushButton" name="answerButton">
+     <property name="text">
+      <string>Answer</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="UserWindow.qrc"/>
+ </resources>
+ <connections/>
+</ui>

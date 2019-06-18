@@ -1,0 +1,2 @@
+file
+D:\OOP\Object-Oriented-Programming\lab10+\lab10+\a.txt

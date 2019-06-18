@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>UserWindowClass</class>
+ <widget class="QMainWindow" name="UserWindowClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>790</width>
+    <height>633</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>UserWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QListWidget" name="listWidget"/>
+    </item>
+    <item>
+     <widget class="QPushButton" name="addBtn">
+      <property name="text">
+       <string>add</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="issueEdit"/>
+    </item>
+    <item>
+     <widget class="QPushButton" name="removeBtn">
+      <property name="text">
+       <string>remove</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="resolveBtn">
+      <property name="text">
+       <string>resolve</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="UserWindow.qrc"/>
+ </resources>
+ <connections/>
+</ui>

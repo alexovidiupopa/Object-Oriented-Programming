@@ -1,0 +1,6 @@
+task1;in progressalin;0
+task2;closed;3
+sadasdas;open;0
+dasasd;open;0
+asdasdsad;in progressdarius;0
+xx;open;0

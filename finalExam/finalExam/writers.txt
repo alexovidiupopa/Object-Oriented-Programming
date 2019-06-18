@@ -1,0 +1,4 @@
+alex;senior
+alin;junior
+razvan;assistant
+marius;junior

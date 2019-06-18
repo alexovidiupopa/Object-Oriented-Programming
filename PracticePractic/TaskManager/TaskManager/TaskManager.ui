@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TaskManagerClass</class>
+ <widget class="QWidget" name="TaskManagerClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>782</width>
+    <height>816</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>TaskManager</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QListWidget" name="listWidget"/>
+   </item>
+   <item>
+    <widget class="QPushButton" name="addButton">
+     <property name="text">
+      <string>Add</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="input"/>
+   </item>
+   <item>
+    <widget class="QPushButton" name="deleteButton">
+     <property name="text">
+      <string>Delete</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="doneButton">
+     <property name="text">
+      <string>Done</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="startButton">
+     <property name="text">
+      <string>Start</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="TaskManager.qrc"/>
+ </resources>
+ <connections/>
+</ui>

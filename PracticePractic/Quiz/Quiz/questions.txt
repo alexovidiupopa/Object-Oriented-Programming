@@ -1,0 +1,4 @@
+1;alex popa;abc abc;3
+2;alex popa;abc abc;4
+123123;12313123;231123123;0
+12;aaa;aaa;0

@@ -1,0 +1,3 @@
+description1;proposed;alex;3
+description2;proposed;alin;1
+description3;accepted;marius;2
